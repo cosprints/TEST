@@ -198,6 +198,55 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Expert spotlight — AI-Native PMM */}
+      <section id="expert-pmm" className="py-10 md:py-16">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <div className="overflow-hidden rounded-[28px] bg-[#f5f5f7]">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="flex flex-col justify-center p-8 md:p-14 lg:p-16">
+                <p className="text-xs md:text-sm font-medium uppercase tracking-[0.2em] text-[#6e6e73]">
+                  Эксперт спринта · AI-Native PMM
+                </p>
+                <h3
+                  className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold text-black"
+                  style={{ letterSpacing: '-0.03em' }}
+                >
+                  Анастасия Рябова
+                </h3>
+                <p className="mt-3 text-lg md:text-xl text-[#1d1d1f]">
+                  AI Product Lead
+                </p>
+                <div className="mt-6 flex items-center gap-3">
+                  <span className="text-sm text-[#6e6e73]">@</span>
+                  <img
+                    src="/tripleten-logo.png"
+                    alt="TripleTen"
+                    className="h-5 md:h-6 w-auto"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = PLACEHOLDER_IMG;
+                    }}
+                  />
+                </div>
+                <p className="mt-8 max-w-md text-base md:text-lg text-[#6e6e73]">
+                  Практик AI-продукта. Ведёт спринт AI-Native PMM — учит
+                  превращать маркетинг в продукт, управляемый AI.
+                </p>
+              </div>
+              <div className="relative min-h-[360px] md:min-h-[520px] bg-[#e8e8ed]">
+                <img
+                  src="/anastasia_ryabova.jpg"
+                  alt="Анастасия Рябова"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = PLACEHOLDER_IMG;
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Secondary grid */}
       <section className="py-10 md:py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-6">

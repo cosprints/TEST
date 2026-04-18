@@ -35,9 +35,13 @@ function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <img src="/csprints.png" alt="Community Sprints" className="h-5 w-auto" onError={handleImageError} />
-            <span className="text-sm font-medium text-black">Community Sprints</span>
+          <Link to="/" className="flex items-center">
+            <img
+              src="/community-sprints-logo.png"
+              alt="Community Sprints"
+              className="h-7 md:h-8 w-auto"
+              onError={handleImageError}
+            />
           </Link>
 
           {isHome && (
