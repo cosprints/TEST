@@ -183,21 +183,21 @@ function HomePage() {
             <img
               src="/csprints.png"
               alt="Community Sprints"
-              className="h-8 md:h-10 w-auto"
+              className="h-16 md:h-20 w-auto"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).src = PLACEHOLDER_IMG;
               }}
             />
           </div>
           <h1
-            className="mt-6 text-5xl md:text-7xl lg:text-[96px] font-semibold text-black leading-[1.05]"
+            className="mt-6 text-[34px] sm:text-5xl md:text-7xl lg:text-[96px] font-semibold text-black leading-[1.05]"
             style={{ letterSpacing: '-0.04em' }}
           >
             <span className="block">Здесь становятся</span>
             <span className={`block ${GRADIENT_TEXT}`}>AI-native</span>
             <RotatingWord
               words={['маркетологами', 'продактами', 'предпринимателями']}
-              className={`${GRADIENT_TEXT} whitespace-nowrap`}
+              className={GRADIENT_TEXT}
             />
           </h1>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
