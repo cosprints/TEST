@@ -1,0 +1,23 @@
+# Node / frontend
+node_modules/
+dist/
+.DS_Store
+
+# Python / bot
+bot/__pycache__/
+bot/**/__pycache__/
+bot/*.db
+bot/*.db-journal
+bot/.venv/
+bot/venv/
+*.pyc
+
+# Secrets — NEVER commit
+.env
+.env.local
+bot/.env
+bot/.env.local
+
+# Editor
+.vscode/
+.idea/
