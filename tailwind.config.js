@@ -8,7 +8,12 @@ export default {
     './pages/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['"Unbounded"', 'system-ui', 'sans-serif'],
+        sans: ['"Inter Tight"', 'system-ui', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };

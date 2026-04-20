@@ -3,10 +3,7 @@ import { Send, Linkedin } from 'lucide-react';
 
 function Footer() {
   return (
-    <footer
-      className="border-t border-black/5 bg-[#f5f5f7] py-12 text-black"
-      style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-    >
+    <footer className="border-t border-black/5 bg-[#f5f5f7] py-12 text-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">

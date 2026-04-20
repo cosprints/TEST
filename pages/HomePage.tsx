@@ -175,7 +175,7 @@ function TileCard({ tile, large = false }: { tile: Tile; large?: boolean }) {
 
 function HomePage() {
   return (
-    <div className="bg-[#fbfbfd] text-black" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+    <div className="bg-[#fbfbfd] text-black">
       {/* Hero */}
       <section className="pt-20 md:pt-28 pb-16 md:pb-24">
         <div className="mx-auto max-w-6xl px-6 text-center">

@@ -29,10 +29,7 @@ function Header() {
   };
 
   return (
-    <header
-      className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/80 backdrop-blur-md"
-      style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-    >
+    <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between">
           <Link to="/" className="flex items-center">
