@@ -37,7 +37,7 @@ function Header() {
         <div className="flex h-12 items-center justify-between">
           <Link to="/" className="flex items-center">
             <img
-              src="/community-sprints-logo.svg"
+              src="/community-sprints-logo.png"
               alt="Community Sprints"
               className="h-7 md:h-8 w-auto"
               onError={handleImageError}
