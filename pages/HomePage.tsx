@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Send, Linkedin } from 'lucide-react';
 
-function RotatingWord({ words, intervalMs = 2200 }: { words: string[]; intervalMs?: number }) {
+function RotatingWord({
+  words,
+  intervalMs = 2200,
+  className = '',
+}: {
+  words: string[];
+  intervalMs?: number;
+  className?: string;
+}) {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -18,7 +26,7 @@ function RotatingWord({ words, intervalMs = 2200 }: { words: string[]; intervalM
 
   return (
     <span
-      className={`inline-block transition-all duration-300 ease-out ${
+      className={`inline-block transition-all duration-300 ease-out ${className} ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
       }`}
     >
@@ -26,6 +34,9 @@ function RotatingWord({ words, intervalMs = 2200 }: { words: string[]; intervalM
     </span>
   );
 }
+
+const GRADIENT_TEXT =
+  'bg-gradient-to-r from-[#0071e3] via-[#7c3aed] to-[#ec4899] bg-clip-text text-transparent';
 
 const PLACEHOLDER_IMG =
   'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect fill="%23eee" width="100" height="100"/%3E%3C/svg%3E';
@@ -182,11 +193,12 @@ function HomePage() {
             className="mt-6 text-5xl md:text-7xl lg:text-[96px] font-semibold text-black leading-[1.05]"
             style={{ letterSpacing: '-0.04em' }}
           >
-            Здесь становятся
-            <br />
-            <span className="bg-gradient-to-r from-[#0071e3] via-[#7c3aed] to-[#ec4899] bg-clip-text text-transparent">
-              AI-native <RotatingWord words={['маркетологами', 'продактами', 'предпринимателями']} />
-            </span>
+            <span className="block">Здесь становятся</span>
+            <span className={`block ${GRADIENT_TEXT}`}>AI-native</span>
+            <RotatingWord
+              words={['маркетологами', 'продактами', 'предпринимателями']}
+              className={`${GRADIENT_TEXT} whitespace-nowrap`}
+            />
           </h1>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
