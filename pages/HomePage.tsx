@@ -1,5 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, Send, Linkedin } from 'lucide-react';
+
+function RotatingWord({ words, intervalMs = 2200 }: { words: string[]; intervalMs?: number }) {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const tick = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % words.length);
+        setVisible(true);
+      }, 300);
+    }, intervalMs);
+    return () => clearInterval(tick);
+  }, [words.length, intervalMs]);
+
+  return (
+    <span
+      className={`inline-block transition-all duration-300 ease-out ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+      }`}
+    >
+      {words[index]}
+    </span>
+  );
+}
 
 const PLACEHOLDER_IMG =
   'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect fill="%23eee" width="100" height="100"/%3E%3C/svg%3E';
@@ -142,9 +168,16 @@ function HomePage() {
       {/* Hero */}
       <section className="pt-20 md:pt-28 pb-16 md:pb-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
-          <p className="text-sm md:text-base font-medium text-[#6e6e73] uppercase tracking-[0.25em]">
-            Community Sprints
-          </p>
+          <div className="flex justify-center">
+            <img
+              src="/csprints.png"
+              alt="Community Sprints"
+              className="h-8 md:h-10 w-auto"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = PLACEHOLDER_IMG;
+              }}
+            />
+          </div>
           <h1
             className="mt-6 text-5xl md:text-7xl lg:text-[96px] font-semibold text-black leading-[1.05]"
             style={{ letterSpacing: '-0.04em' }}
@@ -152,12 +185,9 @@ function HomePage() {
             Здесь становятся
             <br />
             <span className="bg-gradient-to-r from-[#0071e3] via-[#7c3aed] to-[#ec4899] bg-clip-text text-transparent">
-              AI-native профессионалом
+              AI-native <RotatingWord words={['маркетологами', 'продактами', 'предпринимателями']} />
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-[#6e6e73]">
-            Спринты, артефакты и AI-автоматизация — всё, что нужно, чтобы работать как специалист нового времени.
-          </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="#sprints"
