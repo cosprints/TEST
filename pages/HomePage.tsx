@@ -178,7 +178,7 @@ function HomePage() {
     <div className="bg-[#fbfbfd] text-black">
       {/* Hero */}
       <section className="pt-20 md:pt-28 pb-16 md:pb-24">
-        <div className="mx-auto max-w-6xl px-6 text-center">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <div className="flex justify-center">
             <img
               src="/logo_main.svg"
@@ -190,7 +190,7 @@ function HomePage() {
             />
           </div>
           <h1
-            className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black leading-[1.1]"
+            className="mt-6 text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black leading-[1.1]"
             style={{ letterSpacing: '-0.04em' }}
           >
             <span className="block">Здесь становятся</span>
