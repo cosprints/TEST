@@ -183,14 +183,14 @@ function HomePage() {
             <img
               src="/logo_main.svg"
               alt="Community Sprints"
-              className="h-16 md:h-20 w-auto"
+              className="h-10 md:h-12 w-auto"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).src = PLACEHOLDER_IMG;
               }}
             />
           </div>
           <h1
-            className="mt-6 text-[34px] sm:text-5xl md:text-7xl lg:text-[96px] font-semibold text-black leading-[1.05]"
+            className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black leading-[1.1]"
             style={{ letterSpacing: '-0.04em' }}
           >
             <span className="block">Здесь становятся</span>
