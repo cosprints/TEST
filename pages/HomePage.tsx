@@ -181,7 +181,7 @@ function HomePage() {
         <div className="mx-auto max-w-6xl px-6 text-center">
           <div className="flex justify-center">
             <img
-              src="/csprints.png"
+              src="/logo_main.svg"
               alt="Community Sprints"
               className="h-16 md:h-20 w-auto"
               onError={(e) => {
