@@ -1,62 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Send } from 'lucide-react';
-
-type Sprint = {
-  id: string;
-  name: string;
-  tagline: string;
-  expert: string;
-  expertRole: string;
-  expertPhoto: string;
-  weeks: string;
-  meetings: string;
-  practice: string;
-  starts: string;
-  price: string;
-};
-
-const SPRINTS: Sprint[] = [
-  {
-    id: 'linkedin',
-    name: 'LinkedIn Growth',
-    tagline: 'Запустите личный бренд и продажи через LinkedIn',
-    expert: 'Дмитрий Ивановский',
-    expertRole: 'Ex-директор по B2B-продажам, PandaDoc',
-    expertPhoto: '/expert-dmitry-i.jpeg',
-    weeks: '2', meetings: '4', practice: '100',
-    starts: '10 июня 2026', price: '55 000 ₽',
-  },
-  {
-    id: 'growth',
-    name: 'Growth Marketing',
-    tagline: 'Перезапустите маркетинг, чтобы снизить CAC и вырастить продажи',
-    expert: 'Максим Епифанов',
-    expertRole: 'VP Performance Marketing, TripleTen',
-    expertPhoto: '/expert-maxim.jpeg',
-    weeks: '2', meetings: '4', practice: '100',
-    starts: '24 июня 2026', price: '65 000 ₽',
-  },
-  {
-    id: 'ai-native',
-    name: 'AI-native Marketing',
-    tagline: 'Перестройте маркетинговую функцию вокруг ИИ',
-    expert: 'Виктория Харламова',
-    expertRole: 'Ex-Growth Product, Miro',
-    expertPhoto: '/expert-victoria.jpeg',
-    weeks: '2', meetings: '4', practice: '100',
-    starts: '08 июля 2026', price: '70 000 ₽',
-  },
-  {
-    id: 'ai-builders',
-    name: 'AI Builders',
-    tagline: 'Соберите свой первый AI-продукт за 2 недели',
-    expert: 'Денис Сметнев',
-    expertRole: 'Co-founder Skyeng & uForce.pro',
-    expertPhoto: '/expert-denis.jpeg',
-    weeks: '2', meetings: '4', practice: '100',
-    starts: '22 июля 2026', price: '75 000 ₽',
-  },
-];
+import { SPRINTS, type Sprint } from '../data/sprintData';
 
 const PARTNERS = [
   { name: 'Plata', src: '/partner-plata.png', tall: false },
@@ -284,7 +229,9 @@ function MaturityLadder() {
 
 function SprintRow({ s }: { s: Sprint }) {
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-[360px_1fr] overflow-hidden rounded-[28px] border border-black/[.08] bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-black/[.16] hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
+    <Link
+      to={`/sprints/${s.id}`}
+      className="grid grid-cols-1 lg:grid-cols-[360px_1fr] overflow-hidden rounded-[28px] border border-black/[.08] bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-black/[.16] hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
       <div className="relative min-h-[240px] lg:min-h-[320px] bg-[#F5F5F5]">
         <img src={s.expertPhoto} alt={s.expert} className="absolute inset-0 h-full w-full object-cover" />
       </div>
@@ -321,12 +268,12 @@ function SprintRow({ s }: { s: Sprint }) {
           </span>
         </div>
         <div className="mt-2">
-          <button className="inline-flex items-center gap-2 rounded-full border border-[#0A0A0A] bg-[#0A0A0A] px-7 py-3.5 text-[15px] font-medium tracking-[-0.005em] text-white transition-colors hover:bg-[#1f1f1f]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#0A0A0A] bg-[#0A0A0A] px-7 py-3.5 text-[15px] font-medium tracking-[-0.005em] text-white transition-colors group-hover:bg-[#1f1f1f]">
             Подробнее →
-          </button>
+          </span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 

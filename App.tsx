@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import SprintPage from './pages/SprintPage';
 import ThankYouPage from './pages/ThankYouPage';
 import BonusesPage from './pages/BonusesPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -21,6 +22,7 @@ function AppContent() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/sprints/:id" element={<SprintPage />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/bonuses" element={<BonusesPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
