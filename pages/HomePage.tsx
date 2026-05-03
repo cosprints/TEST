@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Send } from 'lucide-react';
 import { SPRINTS, type Sprint } from '../data/sprintData';
@@ -102,6 +102,32 @@ function LinkedInBadge({ size = 14 }: { size?: number }) {
   return <img src="/linkedin-icon.svg" alt="" style={{ width: size, height: size }} className="inline-block align-[-2px]" />;
 }
 
+function RotatingWord({ words, intervalMs = 2200 }: { words: string[]; intervalMs?: number }) {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const tick = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % words.length);
+        setVisible(true);
+      }, 300);
+    }, intervalMs);
+    return () => clearInterval(tick);
+  }, [words.length, intervalMs]);
+
+  return (
+    <span
+      className={`inline-block text-[#396AFC] transition-all duration-300 ease-out ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+      }`}
+    >
+      {words[index]}
+    </span>
+  );
+}
+
 function scrollTo(id: string) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -115,13 +141,12 @@ function Hero() {
           onClick={() => scrollTo('community-sprints')}
           className="text-[20px] sm:text-[24px] md:text-[32px] font-medium tracking-[0.01em] text-[#6B6B6B] hover:text-[#0A0A0A] transition-colors"
         >
-          ✦ Комьюнити профессионалов и предпринимателей
+          ✦ Комьюнити профессионалов и предпринимателей ✦
         </button>
 
-        <h1 className="font-display font-bold text-[#0A0A0A] mt-6 mb-7 leading-[0.96] tracking-[-0.035em] text-[clamp(48px,8.4vw,124px)] [text-wrap:balance]">
-          Здесь становятся
-          <br />
-          <span className="text-[#396AFC]">AI-native</span>
+        <h1 className="font-display font-bold text-[#0A0A0A] mt-6 mb-7 leading-[0.98] tracking-[-0.035em] text-[clamp(40px,7vw,104px)] [text-wrap:balance]">
+          <span className="block">Здесь становятся AI-native</span>
+          <RotatingWord words={['продактами', 'маркетологами', 'предпринимателями']} />
         </h1>
 
         <button
