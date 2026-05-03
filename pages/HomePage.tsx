@@ -145,9 +145,14 @@ function MaturityLadder() {
   return (
     <section className="bg-white border-t border-black/[.08] py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-        <h2 className="font-display font-bold text-[#0A0A0A] m-0 mb-16 text-center leading-[1.02] tracking-[-0.03em] [text-wrap:balance] text-[clamp(28px,4.4vw,64px)]">
-          3 уровня использования <span className="text-[#396AFC]">AI</span>
-        </h2>
+        <div className="mb-16 text-center">
+          <h2 className="font-display font-bold text-[#0A0A0A] m-0 leading-[1.02] tracking-[-0.03em] [text-wrap:balance] text-[clamp(28px,4.4vw,64px)]">
+            3 уровня использования <span className="text-[#396AFC]">AI</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-[640px] text-[18px] sm:text-[20px] text-[#6B6B6B] tracking-[-0.005em]">
+            Вы на каком уровне использования AI?
+          </p>
+        </div>
 
         <div className="relative">
           <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
