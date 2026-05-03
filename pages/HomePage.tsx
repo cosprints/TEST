@@ -117,7 +117,7 @@ function Hero() {
 
         <div className="mt-16">
           <div className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#9C9C9C]">
-            Доверяют сотрудники топ-компаний
+            В нашем комьюнити сотрудники топ-компаний
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-9 gap-y-5">
             {PARTNERS.map((p) => (
