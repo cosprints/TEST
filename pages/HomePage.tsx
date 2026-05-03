@@ -146,7 +146,7 @@ function MaturityLadder() {
     <section className="bg-white border-t border-black/[.08] py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
         <h2 className="font-display font-bold text-[#0A0A0A] m-0 mb-16 text-center leading-[1.02] tracking-[-0.03em] [text-wrap:balance] text-[clamp(28px,4.4vw,64px)]">
-          На каком уровне использования <span className="text-[#396AFC]">AI</span> сейчас ты?
+          На каком уровне использования <span className="text-[#396AFC]">AI</span> сейчас вы или ваша компания?
         </h2>
 
         <div className="relative">
