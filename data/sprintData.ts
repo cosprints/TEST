@@ -14,6 +14,26 @@ export type Sprint = {
 
 export const SPRINTS: Sprint[] = [
   {
+    id: 'ai-builders',
+    name: 'AI Builders',
+    tagline: 'Соберите свой первый AI-продукт за 2 недели',
+    expert: 'Денис Сметнев',
+    expertRole: 'Co-founder Skyeng & uForce.pro',
+    expertPhoto: '/expert-denis.jpeg',
+    weeks: '2', meetings: '4', practice: '100',
+    starts: '22 июля 2026', price: '75 000 ₽',
+  },
+  {
+    id: 'ai-native',
+    name: 'AI-native Marketing',
+    tagline: 'Перестройте маркетинговую функцию вокруг ИИ',
+    expert: 'Виктория Харламова',
+    expertRole: 'Ex-Growth Product, Miro',
+    expertPhoto: '/expert-victoria.jpeg',
+    weeks: '2', meetings: '4', practice: '100',
+    starts: '08 июля 2026', price: '70 000 ₽',
+  },
+  {
     id: 'linkedin',
     name: 'LinkedIn Growth',
     tagline: 'Запустите личный бренд и продажи через LinkedIn',
@@ -32,26 +52,6 @@ export const SPRINTS: Sprint[] = [
     expertPhoto: '/expert-maxim.jpeg',
     weeks: '2', meetings: '4', practice: '100',
     starts: '24 июня 2026', price: '65 000 ₽',
-  },
-  {
-    id: 'ai-native',
-    name: 'AI-native Marketing',
-    tagline: 'Перестройте маркетинговую функцию вокруг ИИ',
-    expert: 'Виктория Харламова',
-    expertRole: 'Ex-Growth Product, Miro',
-    expertPhoto: '/expert-victoria.jpeg',
-    weeks: '2', meetings: '4', practice: '100',
-    starts: '08 июля 2026', price: '70 000 ₽',
-  },
-  {
-    id: 'ai-builders',
-    name: 'AI Builders',
-    tagline: 'Соберите свой первый AI-продукт за 2 недели',
-    expert: 'Денис Сметнев',
-    expertRole: 'Co-founder Skyeng & uForce.pro',
-    expertPhoto: '/expert-denis.jpeg',
-    weeks: '2', meetings: '4', practice: '100',
-    starts: '22 июля 2026', price: '75 000 ₽',
   },
 ];
 
