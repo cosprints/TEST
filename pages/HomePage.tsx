@@ -16,45 +16,29 @@ const PARTNERS = [
 
 type Level = {
   n: string;
+  prefix: string;
   title: string;
   sub: string;
-  desc: string;
-  tools: string;
-  role: string;
 };
 
 const LEVELS: Level[] = [
   {
     n: '01',
+    prefix: 'Базовый',
     title: 'Чат',
-    sub: 'Человек спрашивает — AI отвечает.',
-    desc: 'Вся инициатива и ответственность на человеке.',
-    tools: 'ChatGPT, Claude, Copilot autocomplete',
-    role: 'Оператор',
+    sub: 'Взаимодействие только в диалоговом окне ChatGPT или аналогов.',
   },
   {
     n: '02',
-    title: 'Агенты с инструментами',
-    sub: 'AI выполняет задачи в твоей инфраструктуре.',
-    desc: 'Читает почту, ходит в API, создаёт задачи. Человек ставит цель и контролирует результат.',
-    tools: 'Claude Code, Cursor, n8n agentic',
-    role: 'Постановщик задачи',
+    prefix: 'Продвинутый',
+    title: 'AI-агенты',
+    sub: 'AI выполняет задачи в твоей инфраструктуре: читает почту, ходит в API, создаёт задачи. Ты ставишь цель и контролируешь результат.',
   },
   {
     n: '03',
-    title: 'Multi-agent',
-    sub: 'Несколько агентов с ролями координируются между собой.',
-    desc: 'Один планирует, другой исполняет, третий проверяет. Человек задаёт рамку и принимает финальный результат.',
-    tools: 'CrewAI, AutoGen, deep research',
-    role: 'Архитектор',
-  },
-  {
-    n: '04',
-    title: 'AI-native процессы',
-    sub: 'AI владеет процессом целиком, без человека в цикле.',
-    desc: 'Продажи, поддержка, рекрутинг, операционка. Человек становится надзирателем и стратегом.',
-    tools: 'Devin, Sierra, YC-стартапы 25–26',
-    role: 'Стратег',
+    prefix: 'AI-native',
+    title: 'Команды AI-агентов',
+    sub: 'Несколько агентов с ролями координируются и владеют процессом целиком. Ты задаёшь рамку и принимаешь финальный результат.',
   },
 ];
 
@@ -156,8 +140,7 @@ function MaturityLadder() {
   const cardBg: Record<number, string> = {
     1: 'bg-white border-black/[.08] text-[#0A0A0A]',
     2: 'bg-[#FAFAFA] border-black/[.08] text-[#0A0A0A]',
-    3: 'bg-[#1F1F1F] border-[#1F1F1F] text-white',
-    4: 'bg-[#0A0A0A] border-[#0A0A0A] text-white',
+    3: 'bg-[#0A0A0A] border-[#0A0A0A] text-white',
   };
   return (
     <section className="bg-white border-t border-black/[.08] py-20 md:py-28">
@@ -167,7 +150,7 @@ function MaturityLadder() {
             Шкала AI-зрелости
           </div>
           <h2 className="font-display font-bold text-[#0A0A0A] m-0 leading-[1.02] tracking-[-0.03em] [text-wrap:balance] text-[clamp(28px,4.4vw,64px)]">
-            На каком уровне сейчас работаешь&nbsp;ты — и&nbsp;куда&nbsp;двигаться&nbsp;дальше?
+            На каком уровне использования AI сейчас ты?
           </h2>
         </div>
 
@@ -178,45 +161,27 @@ function MaturityLadder() {
             <span className="absolute right-0 -bottom-[5px] h-[9px] w-[9px] rounded-full bg-[#0A0A0A]" />
           </div>
 
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
             {LEVELS.map((l, i) => {
-              const idx = i + 1 as 1 | 2 | 3 | 4;
-              const isDark = idx >= 3;
+              const idx = i + 1 as 1 | 2 | 3;
+              const isDark = idx === 3;
               return (
                 <article
                   key={l.n}
-                  className={`flex flex-col gap-3.5 rounded-[24px] border px-6 pt-7 pb-6 transition-all duration-200 hover:-translate-y-0.5 ${cardBg[idx]} ${isDark ? 'hover:shadow-2xl' : 'hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)] hover:border-black/[.16]'}`}
+                  className={`flex flex-col gap-3.5 rounded-[24px] border px-6 pt-7 pb-7 transition-all duration-200 hover:-translate-y-0.5 ${cardBg[idx]} ${isDark ? 'hover:shadow-2xl' : 'hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)] hover:border-black/[.16]'}`}
                 >
                   <div className={`font-display font-bold text-[40px] leading-none tracking-[-0.04em] ${isDark ? 'text-white' : 'text-[#0A0A0A]'}`}>
                     {l.n}
                   </div>
-                  <h3 className={`font-display font-semibold m-0 text-[22px] leading-[1.1] tracking-[-0.02em] ${isDark ? 'text-white' : 'text-[#0A0A0A]'}`}>
+                  <div className={`text-[12px] font-medium uppercase tracking-[0.12em] ${isDark ? 'text-white/55' : 'text-[#9C9C9C]'}`}>
+                    {l.prefix}
+                  </div>
+                  <h3 className={`font-display font-semibold m-0 text-[26px] leading-[1.1] tracking-[-0.02em] ${isDark ? 'text-white' : 'text-[#0A0A0A]'}`}>
                     {l.title}
                   </h3>
-                  <p className={`m-0 text-[15px] font-medium leading-[1.4] tracking-[-0.005em] ${isDark ? 'text-white/85' : 'text-[#0A0A0A]'}`}>
+                  <p className={`m-0 flex-1 text-[15px] leading-[1.5] tracking-[-0.005em] ${isDark ? 'text-white/70' : 'text-[#6B6B6B]'}`}>
                     {l.sub}
                   </p>
-                  <p className={`m-0 flex-1 text-[13px] leading-[1.5] tracking-[-0.005em] ${isDark ? 'text-white/60' : 'text-[#6B6B6B]'}`}>
-                    {l.desc}
-                  </p>
-                  <div className={`mt-1 grid grid-cols-2 gap-3 border-t pt-3.5 ${isDark ? 'border-white/[.14]' : 'border-black/[.08]'}`}>
-                    <div>
-                      <div className={`mb-1 text-[10px] font-medium uppercase tracking-[0.1em] ${isDark ? 'text-white/45' : 'text-[#9C9C9C]'}`}>
-                        Роль человека
-                      </div>
-                      <div className={`text-[12px] font-medium leading-[1.35] tracking-[-0.005em] ${isDark ? 'text-white' : 'text-[#0A0A0A]'}`}>
-                        {l.role}
-                      </div>
-                    </div>
-                    <div>
-                      <div className={`mb-1 text-[10px] font-medium uppercase tracking-[0.1em] ${isDark ? 'text-white/45' : 'text-[#9C9C9C]'}`}>
-                        Инструменты
-                      </div>
-                      <div className={`text-[12px] font-medium leading-[1.35] tracking-[-0.005em] ${isDark ? 'text-white' : 'text-[#0A0A0A]'}`}>
-                        {l.tools}
-                      </div>
-                    </div>
-                  </div>
                 </article>
               );
             })}
