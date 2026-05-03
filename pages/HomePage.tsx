@@ -145,22 +145,11 @@ function MaturityLadder() {
   return (
     <section className="bg-white border-t border-black/[.08] py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-        <div className="mb-16 grid gap-4 md:grid-cols-[220px_1fr] md:items-end md:gap-14">
-          <div className="text-[12px] font-medium uppercase tracking-[0.14em] text-[#9C9C9C]">
-            Шкала AI-зрелости
-          </div>
-          <h2 className="font-display font-bold text-[#0A0A0A] m-0 leading-[1.02] tracking-[-0.03em] [text-wrap:balance] text-[clamp(28px,4.4vw,64px)]">
-            На каком уровне использования AI сейчас ты?
-          </h2>
-        </div>
+        <h2 className="font-display font-bold text-[#0A0A0A] m-0 mb-16 text-center leading-[1.02] tracking-[-0.03em] [text-wrap:balance] text-[clamp(28px,4.4vw,64px)]">
+          На каком уровне использования <span className="text-[#396AFC]">AI</span> сейчас ты?
+        </h2>
 
         <div className="relative">
-          <div className="relative mb-6 flex items-end justify-between border-b border-black/[.08] pb-4 px-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[#9C9C9C]">
-            <span>Человек ведёт</span>
-            <span>AI владеет процессом</span>
-            <span className="absolute right-0 -bottom-[5px] h-[9px] w-[9px] rounded-full bg-[#0A0A0A]" />
-          </div>
-
           <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
             {LEVELS.map((l, i) => {
               const idx = i + 1 as 1 | 2 | 3;
