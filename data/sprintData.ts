@@ -17,9 +17,9 @@ export const SPRINTS: Sprint[] = [
     id: 'ai-builders',
     name: 'AI Builders',
     tagline: 'Соберите свой первый AI-продукт за 2 недели',
-    expert: 'Денис Сметнев',
-    expertRole: 'Co-founder Skyeng & uForce.pro',
-    expertPhoto: '/expert-denis.jpeg',
+    expert: 'Дмитрий Зборовский',
+    expertRole: 'Founder, Indie SaaS',
+    expertPhoto: '/expert-dima-z.png',
     weeks: '2', meetings: '4', practice: '100',
     starts: '22 июля 2026', price: '75 000 ₽',
   },
@@ -325,25 +325,19 @@ export const SPRINT_PAGE_CONTENT: Record<string, SprintPageContent> = {
   },
 
   'ai-builders': {
-    heroSub: 'Авторский спринт Дениса Сметнева для тех, кто хочет собрать первый AI-продукт за 2 недели — от гипотезы до прод-MVP с LLM-ядром',
-    companyName: 'uForce.pro',
+    heroSub: 'Авторский спринт Дмитрия Зборовского для тех, кто хочет собрать первый AI-продукт за 2 недели — от гипотезы до прод-MVP с LLM-ядром',
+    companyName: 'Indie SaaS',
     rockNoun: 'AI Product',
     studentsCount: 200,
-    programSub: 'Денис делится опытом запуска AI-продуктов и проектирует с вами архитектуру вашего MVP',
+    programSub: 'Дмитрий делится опытом запуска AI-продуктов и проектирует с вами архитектуру вашего MVP',
     otherSprints: [{ label: 'AI-native Marketing' }, { label: 'AI Builders' }],
     intro: [
-      { emoji: '👋', html: '<strong>Денис Сметнев</strong>, co-founder <strong>Skyeng & uForce.pro</strong>.' },
+      { emoji: '👋', html: '<strong>Дмитрий Зборовский</strong>, фаундер Indie SaaS и автор спринта AI Builders.' },
       { emoji: '🚀', html: 'Запустил спринт <strong>AI Builders</strong> для продактов и инженеров, желающих собрать рабочий AI-MVP.' },
-      { emoji: '📝', html: 'uForce — мультидисциплинарное агентство на стыке продукта и маркетинга.' },
+      { emoji: '📝', html: 'Сам прошёл путь от идеи до платящих клиентов — делится фреймворками и стеком.' },
       { emoji: '📝', html: 'Помог <strong>20+ командам</strong> довести AI-идею до первых платящих пользователей.' },
     ],
     bigTestimonials: [
-      { cg: 'linear-gradient(135deg,#0f766e 0%,#0c4a6e 100%)', tag: 'Indie SaaS', ac: '#86efac', ini: 'ДЗ',
-        name: 'Дмитрий Зборовский', role: 'Founder', co: 'Indie SaaS',
-        ps: [
-          'За 2 недели от идеи до работающего AI-MVP — это не гипербола, это план Дениса.',
-          'Получил конкретный фреймворк проектирования и eval-стек для своего продукта.',
-        ]},
       { cg: 'linear-gradient(135deg,#3956FF 0%,#0f172a 100%)', tag: 'AI Startup', ac: '#a78bfa', ini: 'АР',
         name: 'Андрей Ребров', role: 'Co-founder', co: 'AI SaaS',
         ps: [
