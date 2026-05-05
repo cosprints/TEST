@@ -19,7 +19,7 @@ export const SPRINTS: Sprint[] = [
     tagline: 'Соберите свой первый AI-продукт за 2 недели',
     expert: 'Дмитрий Зборовский',
     expertRole: 'Founder, Indie SaaS',
-    expertPhoto: '/expert-dima-z.png',
+    expertPhoto: '/zborovsky.jpg',
     weeks: '2', meetings: '4', practice: '100',
     starts: '22 июля 2026', price: '75 000 ₽',
   },
