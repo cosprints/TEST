@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Play, Users, BookOpen, Target, Zap, Brain, Camera, Mic, Video, Bot, Sparkles, CheckCircle, User, MapPin, Calendar, Gift, GraduationCap, Network, ChevronDown, Award } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play, Users, BookOpen, Target, Zap, Brain, Camera, Mic, Video, Bot, Sparkles, CheckCircle, User, MapPin, Calendar, Gift, GraduationCap, Network, ChevronDown, Award, Linkedin } from 'lucide-react';
 import { PartnerPopup } from '../components/PartnerPopup';
 import { CountdownBanner } from '../components/CountdownBanner';
 import { MobileRegisterButton } from '../components/MobileRegisterButton';
@@ -78,6 +78,35 @@ function HomePage() {
     { src: '/hustle-fund-logo.png', alt: 'Hustle Fund' },
     { src: '/descript-logo.png', alt: 'Descript' },
     { src: '/idc-ventures.png', alt: 'IDC Ventures' },
+  ];
+
+  const speakers: {
+    photo: string;
+    name: string;
+    role: string;
+    company: { logo: string; name: string };
+    bio: string;
+  }[] = [
+    { photo: '/martijn_lancee.jpg', name: 'Martijn Lancee', role: 'GTM AI', company: { logo: '/microsoft-logo.png', name: 'Microsoft' }, bio: 'Senior leader at Microsoft driving adoption and growth of AI and cloud solutions, with a focus on business development, strategic AI partnerships, and go-to-market programs.' },
+    { photo: '/satyajeet-salgar.jpg', name: 'Satyajeet Salgar', role: 'Director of Product', company: { logo: '/google-ai-logo.png', name: 'Google AI' }, bio: "Leads product and UX teams for Google's Applied AI research, focusing on human interaction and scaling products to 1B+ daily active users." },
+    { photo: '/zborovskiy.jpg', name: 'Dima Zborovskiy', role: 'AI Director', company: { logo: '/deliveroo.png', name: 'Deliveroo' }, bio: 'Integrated AI agents into real workflows, achieving a 3× ROI boost.' },
+    { photo: '/tomas-dostal-freire.jpg', name: 'Tomás Dostal Freire', role: 'CIO', company: { logo: '/miro-logo.png', name: 'Miro' }, bio: 'CIO & Head of Business Transformation. Defining AI-first operating models for hypergrowth scale. Ex-Netflix, Google, Booking.com.' },
+    { photo: '/filev.jpg', name: 'Andrew Filev', role: 'Founder & CEO', company: { logo: '/zencoder-logo.png', name: 'Zencoder' }, bio: 'Founded Zencoder AI coding assistant and Wrike, sold to Citrix for ~$2.25B. Featured in Forbes, Entrepreneur, Inc., and The New York Times.' },
+    { photo: '/gupta.jpg', name: 'Pallavi Gupta', role: 'Product Manager', company: { logo: '/microsoft-logo.png', name: 'Microsoft' }, bio: 'Leads AI and analytics product strategy at Microsoft, driving innovation across Bing Search and AI capabilities.' },
+    { photo: '/misti-cain_.jpg', name: 'Misti Cain', role: 'Managing Director', company: { logo: '/techstars-logo-vector.png', name: 'Techstars' }, bio: 'Has helped portfolio startups raise over $30 million and achieve two successful exits. Recipient of the #GiveFirst Award (2022) and All-Star Mentor (2019).' },
+    { photo: '/joseph.jpg', name: 'Raphael Joseph', role: 'Co-Founder', company: { logo: '/raphael_joseph_company_logo.png', name: 'We Are Agentic' }, bio: 'Co-founded an AI training and consulting firm that helps enterprises implement agentic workflows across the UK, Europe, GCC, and the USA.' },
+    { photo: '/veremeyenko.jpg', name: 'Alex Veremeyenko', role: 'Founder', company: { logo: '/veremeyenko_company_logo.png', name: 'God of Prompt' }, bio: 'Built a leading AI prompting platform serving 17,000+ customers, 70,000+ newsletter subscribers, and a library of 30,000+ prompts.' },
+    { photo: '/carraro.jpg', name: 'Fabrício Carraro', role: 'AI Developer Advocate', company: { logo: '/fabricio_carraroco_company.png', name: 'Barcelona Supercomputing Center' }, bio: 'Advancing AI development and innovation.' },
+    { photo: '/nick_golos.jpg', name: 'Nick Golos', role: 'Growth manager', company: { logo: '/fluently_.png', name: 'Fluently' }, bio: 'Uses AI to create viral Linkedin content with over 1M impressions per post.' },
+    { photo: '/haley-bryant.jpg', name: 'Haley Bryant', role: 'Partner', company: { logo: '/hustle-fund-logo.png', name: 'Hustle Fund' }, bio: 'Invests in pre-seed AI/ML, fintech, and digital health startups at Hustle Fund. Has made 50+ angel investments, promoted to Partner in December 2025.' },
+    { photo: '/huryn copy.jpg', name: 'Pawel Huryn', role: 'CEO', company: { logo: '/product-compass.png', name: 'The Product Compass' }, bio: 'Runs the #1 AI & PM newsletter, plus courses and step-by-step playbooks for AI PMs — trusted by 127K+ and growing.' },
+    { photo: '/laura-burkhauser.jpg', name: 'Laura Burkhauser', role: 'CEO', company: { logo: '/descript-logo.png', name: 'Descript' }, bio: 'Previously Director of Product Management at Twitter, with product roles at Rent the Runway, Le Tote, and Amazon.' },
+    { photo: '/max-reiff.jpg', name: 'Max Reiff', role: 'Partner', company: { logo: '/idc-ventures.png', name: 'IDC Ventures' }, bio: 'Leads investments in fintech and marketplace startups at a global VC platform managing $850M in assets across the US, Latin America, and Europe.' },
+    { photo: '/liam_dubson.jpg', name: 'Liam Dubson', role: 'Founder & CEO', company: { logo: '/encountr.png', name: 'Encountr' }, bio: 'Leader of Spark Founders, empowering entrepreneurs to connect with co-founders and resources. Creator of the Relationship Intelligence Operating System.' },
+    { photo: '/jay_singh.jpg', name: 'Jay Singh', role: 'CEO', company: { logo: '/logo-casper-studios.png', name: 'Casper Studios' }, bio: 'Worked with dozens of brands and founders, overseeing 100+ creative projects spanning video, digital media, and brand storytelling.' },
+    { photo: '/hamel_husain.jpg', name: 'Hamel Husain', role: 'ML Engineer', company: { logo: '/logo-parlance-labs.png', name: 'Parlance Labs' }, bio: 'Independent AI Consultant & ML Engineer with 20+ years of experience building and scaling applied AI, ML, and data science systems.' },
+    { photo: '/matthias_walter.jpg', name: 'Matthias Walter', role: 'Co-Founder', company: { logo: '/fastbreak_one_logo.jpeg', name: 'Fastbreak.one' }, bio: 'Building innovative AI solutions at Fastbreak.one.' },
+    { photo: '/rohun-shroff.jpg', name: 'Rohun Shroff', role: 'CEO', company: { logo: '/ai_pulse_logo.png', name: 'The AI Pulse' }, bio: 'Leading innovation in AI and technology at The AI Pulse.' },
   ];
 
   const conferences = [
@@ -506,414 +535,62 @@ function HomePage() {
       </section>
 
 
-      {/* Meet Our Experts */}
+      {/* Speakers — CS community grid */}
       <section id="experts" className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="hero-title text-3xl lg:text-5xl font-bold text-black mb-6">Speakers</h2>
-            <p className="text-xl text-gray-700">Learn from top industry leaders and innovators shaping the future of AI</p>
+        <div className="cs-container">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h2 className="cs-display-m text-cs-black mb-3">Speakers</h2>
+            <p className="text-lg text-cs-gray-700">
+              Learn from top industry leaders and innovators shaping the future of AI
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-pink-400 to-pink-600">
-                <img
-                  src="/martijn_lancee.jpg"
-                  alt="Martijn Lancee"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">GTM AI</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/microsoft-logo.png" alt="Microsoft" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Martijn Lancee</h3>
-                <p className="text-gray-400 text-sm italic">A senior leader at Microsoft driving the adoption and growth of AI and cloud solutions, with a focus on business development, strategic AI partnerships, and go-to-market programs.</p>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {speakers.map((s) => (
+              <article
+                key={s.name}
+                className="group flex flex-col bg-white rounded-cs-lg border border-cs-gray-200 overflow-hidden shadow-cs-xs hover:shadow-cs-md transition-shadow"
+              >
+                {/* Photo with name overlay + company badge */}
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-cs-gray-100">
+                  <img
+                    src={s.photo}
+                    alt={s.name}
+                    loading="lazy"
+                    onError={handleImageError}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                  {/* Bottom gradient for legibility */}
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
 
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-indigo-400 to-blue-600">
-                <img
-                  src="/satyajeet-salgar.jpg"
-                  alt="Satyajeet Salgar"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">Director of Product</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/google-ai-logo.png" alt="Google AI" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Satyajeet Salgar</h3>
-                <p className="text-gray-400 text-sm italic">Leads product and UX teams for Google's Applied AI research, focusing on human interaction and scaling products to 1B+ daily active users.</p>
-              </div>
-            </div>
+                  {/* Company badge (top-right) */}
+                  <div className="absolute top-3 right-3 inline-flex items-center bg-white rounded-cs-pill px-3 py-1.5 shadow-cs-xs">
+                    <img
+                      src={s.company.logo}
+                      alt={s.company.name}
+                      className="h-4 object-contain"
+                      onError={handleImageError}
+                    />
+                  </div>
 
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-orange-400 to-red-600">
-                <img
-                  src="/zborovskiy.jpg"
-                  alt="Dima Zborovskiy"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-3 py-2 rounded-full text-sm font-medium">AI Director</span>
-                  <span className="inline-flex items-center bg-white px-3 py-2 rounded-full">
-                    <img src="/deliveroo.png" alt="Deliveroo" className="h-5" onError={handleImageError} />
-                  </span>
+                  {/* Name overlay (bottom-left) */}
+                  <h3 className="absolute left-4 right-4 bottom-3 font-display font-bold text-white text-xl tracking-cs-display leading-tight">
+                    {s.name}
+                  </h3>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">Dima Zborovskiy</h3>
-                <p className="text-gray-400 text-sm italic">Integrated AI agents into real workflows, achieving a 3× ROI boost</p>
-              </div>
-            </div>
 
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-amber-400 to-yellow-600">
-                <img
-                  src="/tomas-dostal-freire.jpg"
-                  alt="Tomás Dostal Freire"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">CIO</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/miro-logo.png" alt="Miro" className="h-5" onError={handleImageError} />
-                  </span>
+                {/* Meta + bio */}
+                <div className="p-5 flex flex-col gap-3 flex-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="inline-flex items-center font-body font-medium text-xs text-cs-ink bg-cs-gray-100 px-3 py-1 rounded-cs-pill">
+                      {s.role}
+                    </span>
+                    <Linkedin className="h-4 w-4 text-cs-blue" aria-hidden="true" />
+                  </div>
+                  <p className="text-sm text-cs-gray-700 leading-relaxed">{s.bio}</p>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">Tomás Dostal Freire</h3>
-                <p className="text-gray-400 text-sm italic">CIO & Head of Business Transformation. Defining AI-first operating models for hypergrowth scale. Ex-Netflix, Google, Booking.com</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-teal-400 to-cyan-600">
-                <img
-                  src="/filev.jpg"
-                  alt="Andrew Filev"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">Founder & CEO</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/zencoder-logo.png" alt="Zencoder" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Andrew Filev</h3>
-                <p className="text-gray-400 text-sm italic">Founded Zencoder AI coding assistant and Wrike, sold to Citrix for ~$2.25B. Featured in Forbes, Entrepreneur, Inc., and The New York Times.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-purple-400 to-pink-600">
-                <img
-                  src="/gupta.jpg"
-                  alt="Pallavi Gupta"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">Product Manager</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/microsoft-logo.png" alt="Microsoft" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Pallavi Gupta</h3>
-                <p className="text-gray-400 text-sm italic">Leads AI and analytics product strategy at Microsoft, driving innovation across Bing Search and AI capabilities.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-indigo-400 to-blue-600">
-                <img
-                  src="/misti-cain_.jpg"
-                  alt="Misti Cain"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-3 py-2 rounded-full text-sm font-medium">Managing Director</span>
-                  <span className="inline-flex items-center bg-white px-3 py-2 rounded-full">
-                    <img src="/techstars-logo-vector.png" alt="Techstars" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Misti Cain</h3>
-                <p className="text-gray-400 text-sm italic">Has helped portfolio startups raise over $30 million and achieve two successful exits. Recipient of the prestigious #GiveFirst Award (2022) and voted All-Star Mentor (2019).</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-green-400 to-emerald-600">
-                <img
-                  src="/joseph.jpg"
-                  alt="Raphael Joseph"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-3 py-2 rounded-full text-sm font-medium">Co-Founder</span>
-                  <span className="inline-flex items-center bg-white px-3 py-2 rounded-full">
-                    <img src="/raphael_joseph_company_logo.png" alt="We Are Agentic" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Raphael Joseph</h3>
-                <p className="text-gray-400 text-sm italic">Co-founded an AI training and consulting firm that helps enterprises implement agentic workflows and AI adoption strategies across the UK, Europe, GCC, and the USA.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-yellow-400 to-orange-600">
-                <img
-                  src="/veremeyenko.jpg"
-                  alt="Alex Veremeyenko"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-3 py-2 rounded-full text-sm font-medium">Founder</span>
-                  <span className="inline-flex items-center bg-white px-3 py-2 rounded-full">
-                    <img src="/veremeyenko_company_logo.png" alt="God of Prompt" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Alex Veremeyenko</h3>
-                <p className="text-gray-400 text-sm italic">Built a leading AI prompting platform serving 17,000+ customers, 70,000+ newsletter subscribers, and featuring a library of 30,000+ prompts.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-blue-400 to-cyan-600">
-                <img
-                  src="/carraro.jpg"
-                  alt="Fabrício Carraro"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-3 py-2 rounded-full text-sm font-medium">AI Developer Advocate</span>
-                  <span className="inline-flex items-center bg-white px-3 py-2 rounded-full">
-                    <img src="/fabricio_carraroco_company.png" alt="Barcelona Supercomputing Center" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Fabrício Carraro</h3>
-                <p className="text-gray-400 text-sm italic">Advancing AI development and innovation</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-pink-400 to-rose-600">
-                <img
-                  src="/nick_golos.jpg"
-                  alt="Nick Golos"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-3 py-2 rounded-full text-sm font-medium">Growth manager</span>
-                  <span className="inline-flex items-center bg-white px-3 py-2 rounded-full">
-                    <img src="/fluently_.png" alt="Fluently" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Nick Golos</h3>
-                <p className="text-gray-400 text-sm italic">Uses AI to create viral LinkedIn content with over 1M impressions per post</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-amber-400 to-orange-600">
-                <img
-                  src="/haley-bryant.jpg"
-                  alt="Haley Bryant"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-3 py-2 rounded-full text-sm font-medium">Partner</span>
-                  <span className="inline-flex items-center bg-white px-3 py-2 rounded-full">
-                    <img src="/hustle-fund-logo.png" alt="Hustle Fund" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Haley Bryant</h3>
-                <p className="text-gray-400 text-sm italic">Invests in pre-seed AI/ML, fintech, and digital health startups at Hustle Fund. Has made 50+ angel investments and was recently promoted to Partner (December 2025).</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-emerald-400 to-green-600">
-                <img
-                  src="/huryn_copy.jpg"
-                  alt="Pawel Huryn"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">CEO</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/product-compass.png" alt="The Product Compass" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Pawel Huryn</h3>
-                <p className="text-gray-400 text-sm italic">Runs the #1 AI & PM newsletter, plus courses and step-by-step playbooks for AI PMs—trusted by 127K+ and growing.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-amber-400 to-orange-600">
-                <img
-                  src="/laura-burkhauser.jpg"
-                  alt="Laura Burkhauser"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">CEO</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/descript-logo.png" alt="Descript" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Laura Burkhauser</h3>
-                <p className="text-gray-400 text-sm italic">Previously Director of Product Management at Twitter, with product roles at Rent the Runway, Le Tote, and Amazon.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-slate-400 to-blue-700">
-                <img
-                  src="/max-reiff.jpg"
-                  alt="Max Reiff"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">Partner</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/idc-ventures.png" alt="IDC Ventures" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Max Reiff</h3>
-                <p className="text-gray-400 text-sm italic">Leads investments in fintech and marketplace startups at a global VC platform managing $850M in assets across the US, Latin America, and Europe.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-lime-400 to-green-600">
-                <img
-                  src="/liam_dubson.jpg"
-                  alt="Liam Dubson"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">Founder & CEO</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/encountr.png" alt="Encountr" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Liam Dubson</h3>
-                <p className="text-gray-400 text-sm italic">Leader of Spark Founders, a dynamic platform empowering entrepreneurs to connect with the right co-founders and access the resources needed to scale high-impact ventures. Creator of the Relationship Intelligence Operating System.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-blue-500 to-cyan-600">
-                <img
-                  src="/jay_singh.jpg"
-                  alt="Jay Singh"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">CEO</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/logo-casper-studios.png" alt="Casper Studios" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Jay Singh</h3>
-                <p className="text-gray-400 text-sm italic">He has worked with dozens of brands and founders, overseeing 100+ creative projects spanning video, digital media, and brand storytelling.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-violet-400 to-fuchsia-600">
-                <img
-                  src="/hamel_husain.jpg"
-                  alt="Hamel Husain"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">ML Engineer</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/logo-parlance-labs.png" alt="Parlance Labs" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Hamel Husain</h3>
-                <p className="text-gray-400 text-sm italic">Independent AI Consultant & ML Engineer with 20+ years of experience building and scaling applied AI, machine learning, and data science systems.</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-rose-400 to-red-600">
-                <img
-                  src="/matthias_walter.jpg"
-                  alt="Matthias Walter"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">Co-Founder</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/fastbreak_one_logo.jpeg" alt="Fastbreak.one" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Matthias Walter</h3>
-                <p className="text-gray-400 text-sm italic">Building innovative AI solutions at Fastbreak.one</p>
-              </div>
-            </div>
-
-            <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="relative h-64 w-full bg-gradient-to-br from-sky-400 to-blue-700">
-                <img
-                  src="/rohun-shroff.jpg"
-                  alt="Rohun Shroff"
-                  className="w-full h-full object-cover"
-                  loading="lazy" onError={handleImageError} />
-              </div>
-              <div className="px-4 py-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-block bg-gray-600 text-white px-2 py-2 rounded-full text-sm font-medium">CEO</span>
-                  <span className="inline-flex items-center bg-white px-2 py-2 rounded-full">
-                    <img src="/ai_pulse_logo.png" alt="The AI Pulse" className="h-5" onError={handleImageError} />
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">Rohun Shroff</h3>
-                <p className="text-gray-400 text-sm italic">Leading innovation in AI and technology at The AI Pulse</p>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
