@@ -277,92 +277,102 @@ function HomePage() {
         }
       `}</style>
 
-      {/* Hero Section */}
-      <section className="py-8 lg:py-24 bg-gradient-to-br from-purple-50 via-cyan-50 to-blue-50 relative overflow-hidden">
-        {/* Accent Gradients */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-300/30 to-pink-300/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-pink-300/30 to-purple-300/30 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-300/20 to-blue-300/20 rounded-full blur-3xl"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Hero Section — CS gradient wash */}
+      <section className="cs-hero-bg relative overflow-hidden py-12 lg:py-24">
+        {/* Decorative scribble — top-right */}
+        <img
+          src="/assets/cs/scribble-sparkles-blue.png"
+          alt=""
+          aria-hidden="true"
+          className="hidden lg:block absolute top-16 right-8 w-24 opacity-80 -rotate-6 pointer-events-none"
+        />
+        <div className="cs-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text */}
+            {/* Left — text */}
             <div className="space-y-8">
-              <h1 className="hero-title text-2xl md:text-3xl lg:text-5xl font-bold text-black leading-tight mt-4">
-                Join Our Virtual Conf —<br className="sm:hidden" /> Build Real AI Skills
+              <h1 className="cs-display-l text-cs-black">
+                Join our virtual conf — build real AI skills
               </h1>
 
-              <div className="flex flex-wrap gap-4 text-gray-700">
-                <div className="flex items-center space-x-2">
-                  <MapPin className="h-5 w-5 text-gray-600" />
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-cs-gray-700">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-cs-gray-500" />
                   <span className="font-medium">Online via Zoom</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Calendar className="h-5 w-5 text-gray-600" />
-                  <span className="font-medium hidden sm:inline">
-                    <span className="text-gray-800">22 January 2026, </span>
-                    <span className="text-gray-400">8 AM SF | 11 AM NYC | 4 PM GMT</span>
-                  </span>
-                  <span className="font-medium sm:hidden">
-                    <span className="text-gray-800">22 Jan 2026, </span>
-                    <span className="text-gray-400">8 AM SF | 11 AM NYC | 4 PM GMT</span>
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-5 w-5 text-cs-gray-500" />
+                  <span className="font-medium">
+                    <span className="text-cs-ink">22 January 2026, </span>
+                    <span className="text-cs-gray-500">8 AM SF · 11 AM NYC · 4 PM GMT</span>
                   </span>
                 </div>
               </div>
 
-              <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <span className="border-2 border-black text-black font-bold px-3 py-1 rounded-lg text-sm flex-shrink-0">5,000+</span>
-                  <span className="text-gray-700">attendees as your network</span>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <span className="font-display font-black text-cs-blue text-3xl lg:text-4xl tracking-cs-display tabular-nums">
+                    5,000+
+                  </span>
+                  <span className="text-cs-gray-700">attendees as your network</span>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <span className="border-2 border-black text-black font-bold px-3 py-1 rounded-lg text-sm flex-shrink-0">20+</span>
-                  <span className="text-gray-700">speakers — top AI experts</span>
+                <li className="flex items-center gap-3">
+                  <span className="font-display font-black text-cs-blue text-3xl lg:text-4xl tracking-cs-display tabular-nums">
+                    20+
+                  </span>
+                  <span className="text-cs-gray-700">speakers — top AI experts</span>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <span className="border-2 border-black text-black font-bold px-3 py-1 rounded-lg text-sm flex-shrink-0">4+</span>
-                  <span className="text-gray-700">hours of hands-on practice and insights</span>
+                <li className="flex items-center gap-3">
+                  <span className="font-display font-black text-cs-blue text-3xl lg:text-4xl tracking-cs-display tabular-nums">
+                    4+
+                  </span>
+                  <span className="text-cs-gray-700">hours of hands-on practice and insights</span>
                 </li>
               </ul>
 
-              <div className="pt-4 relative inline-block">
-                <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="levitate-button bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all inline-block shadow-lg hover:shadow-xl hover:scale-105">
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cs-btn-primary text-base px-7 py-3.5"
+                >
                   Secure your spot
+                  <ChevronRight className="h-5 w-5" />
                 </a>
-                <span className="absolute -top-3 -right-4 bg-gradient-to-r from-green-400 to-emerald-500 text-white px-6 py-2 rounded-full font-bold text-base shadow-lg transform rotate-12 z-10">
+                <span className="inline-flex items-center px-4 py-2 rounded-cs-pill bg-cs-black text-white text-sm font-semibold">
                   For free
                 </span>
               </div>
             </div>
 
-            {/* Right - Visual */}
+            {/* Right — visual */}
             <div className="relative w-full">
               <HeroSpeakersCarousel />
             </div>
           </div>
 
-          {/* Company Logos Carousel */}
-          <div className="mt-16">
+          {/* Company logos carousel */}
+          <div className="mt-20">
+            <p className="text-center text-xs uppercase tracking-wider text-cs-gray-500 mb-6">
+              Speakers from teams at
+            </p>
             <style>{`
               @keyframes scroll-logos {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(-50%);
-                }
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
               }
               .logo-carousel {
                 animation: scroll-logos 30s linear infinite 3s;
               }
             `}</style>
             <div className="overflow-hidden">
-              <div className="logo-carousel flex items-center gap-8 py-4">
+              <div className="logo-carousel flex items-center gap-12 py-4">
                 {[...companyLogos, ...companyLogos].map((logo, index) => (
                   <img
                     key={`${logo.src}-${index}`}
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0"
+                    className="h-10 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0"
                     onError={handleImageError}
                   />
                 ))}
@@ -802,7 +812,7 @@ function HomePage() {
             <div className="bg-black rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
               <div className="relative h-64 w-full bg-gradient-to-br from-emerald-400 to-green-600">
                 <img
-                  src="/huryn copy.jpg"
+                  src="/huryn_copy.jpg"
                   alt="Pawel Huryn"
                   className="w-full h-full object-cover"
                   loading="lazy" onError={handleImageError} />
@@ -992,7 +1002,7 @@ function HomePage() {
                     <div className="flex items-center gap-2">
                       <img src="/co-hosts_max_pog.jpg" alt="Max Pog" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
                       <span className="text-gray-900">Max Pog, Co-Host</span>
-                      <img src="/csprints_inverted copy.png" alt="Community Sprints" className="h-5" onError={handleImageError} />
+                      <img src="/csprints_inverted_copy.png" alt="Community Sprints" className="h-5" onError={handleImageError} />
                     </div>
                     <div className="flex items-center gap-2">
                       <img src="/co-hosts_veremeyenko.jpg" alt="Alex Veremeyenko" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
@@ -1000,7 +1010,7 @@ function HomePage() {
                       <img src="/veremeyenko_company_logo.png" alt="God of Prompt" className="h-5" onError={handleImageError} />
                     </div>
                     <div className="flex items-center gap-2">
-                      <img src="/huryn copy.jpg" alt="Pawel Huryn" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
+                      <img src="/huryn_copy.jpg" alt="Pawel Huryn" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
                       <span className="text-gray-900">Pawel Huryn, CEO</span>
                       <img src="/product-compass.png" alt="The Product Compass" className="h-5" onError={handleImageError} />
                     </div>
@@ -1508,7 +1518,7 @@ function HomePage() {
                 </p>
                 <div className="flex flex-col items-center mt-2">
                   <img
-                    src="/huryn copy.jpg"
+                    src="/huryn_copy.jpg"
                     alt="Pawel Huryn"
                     className="w-12 h-12 rounded-full object-cover mb-1" onError={handleImageError} />
                   <span className="text-xs text-gray-700 font-medium">Pawel Huryn</span>
