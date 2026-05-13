@@ -383,164 +383,110 @@ function HomePage() {
       </section>
 
       {/* AI Implementation Challenges Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-24 bg-cs-gray-50">
+        <div className="cs-container">
           <div className="text-center mb-16">
-            <div className="mt-12 mb-8">
-              <h3 className="hero-title text-3xl lg:text-5xl font-bold text-black mb-6">
-                This Event Is For
-              </h3>
+            <h2 className="cs-display-m text-cs-black mb-8">
+              This event is for
+            </h2>
 
-              <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-                <div className="transform -rotate-1">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Business Owners
-                  </span>
-                </div>
-
-                <div className="transform rotate-2">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Project & Product Managers
-                  </span>
-                </div>
-
-                <div className="transform -rotate-2">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Operations Managers
-                  </span>
-                </div>
-
-                <div className="transform rotate-1">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Sales & Marketing Executives
-                  </span>
-                </div>
-
-                <div className="transform -rotate-1">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Customer Support Managers
-                  </span>
-                </div>
-
-                <div className="transform rotate-2">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Developers
-                  </span>
-                </div>
-
-                <div className="transform -rotate-2">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Investors & VCs
-                  </span>
-                </div>
-
-                <div className="transform rotate-1">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Consultants & Advisors
-                  </span>
-                </div>
-
-                <div className="transform -rotate-1">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Creators
-                  </span>
-                </div>
-
-                <div className="transform rotate-2">
-                  <span className="inline-block px-6 py-3 border-2 border-black text-black rounded-full text-sm lg:text-base font-semibold">
-                    Educators & Trainers
-                  </span>
-                </div>
-              </div>
+            <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+              {[
+                'Business Owners',
+                'Project & Product Managers',
+                'Operations Managers',
+                'Sales & Marketing Executives',
+                'Customer Support Managers',
+                'Developers',
+                'Investors & VCs',
+                'Consultants & Advisors',
+                'Creators',
+                'Educators & Trainers',
+              ].map((label) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center px-5 py-2.5 rounded-cs-pill bg-white border border-cs-gray-200 text-cs-ink font-body font-medium text-sm shadow-cs-xs"
+                >
+                  {label}
+                </span>
+              ))}
             </div>
           </div>
 
-          <div className="mb-16 text-center">
-            <h3 className="hero-title text-3xl lg:text-5xl font-bold text-black mb-6">
-              What You'll Walk Away With
-            </h3>
+          <div className="mb-12 text-center">
+            <h2 className="cs-display-m text-cs-black">
+              What you'll walk away with
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Item 1 */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-black">
-              <div className="mb-6">
-                <img src="/tools.png" alt="Actionable AI Workflows" className="h-20 w-20" />
+            {[
+              {
+                icon: '/tools.png',
+                alt: 'Actionable AI Workflows',
+                title: 'Actionable AI workflows & use cases',
+                body: 'Real workflows from practitioners who use AI daily at companies like DoorDash and Techstars — not theory',
+              },
+              {
+                icon: '/hands.png',
+                alt: 'Ready-to-Use Prompts',
+                title: 'Ready-to-use prompts & templates',
+                body: 'Copy-paste prompts and frameworks you can implement in your work the same day',
+              },
+              {
+                icon: '/goal.png',
+                alt: '2026 AI Trends',
+                title: '2026 AI trends & predictions',
+                body: "Understand what's coming so you can prepare your career and your team",
+              },
+              {
+                icon: '/community.png',
+                alt: 'Access to AI Community',
+                title: 'Access to AI community',
+                body: 'Connect with 5,000+ professionals learning AI together',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="bg-white p-7 rounded-cs-lg border border-cs-gray-200 shadow-cs-xs hover:shadow-cs-md transition-shadow"
+              >
+                <img src={item.icon} alt={item.alt} className="h-16 w-16 mb-5" />
+                <h3 className="font-display font-bold text-cs-black text-lg tracking-cs-tight mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-cs-gray-700 leading-relaxed text-sm">
+                  {item.body}
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-black mb-3">
-                Actionable AI Workflows & Use Cases
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-sm">
-                Real workflows from practitioners who use AI daily at companies like DoorDash and Techstars — not theory
-              </p>
-            </div>
-
-            {/* Item 2 */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-black">
-              <div className="mb-6">
-                <img src="/hands.png" alt="Ready-to-Use Prompts" className="h-20 w-20" />
-              </div>
-              <h3 className="text-lg font-bold text-black mb-3">
-                Ready-to-Use Prompts & Templates
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-sm">
-                Copy-paste prompts and frameworks you can implement in your work the same day
-              </p>
-            </div>
-
-            {/* Item 3 */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-black">
-              <div className="mb-6">
-                <img src="/goal.png" alt="2026 AI Trends" className="h-20 w-20" />
-              </div>
-              <h3 className="text-lg font-bold text-black mb-3">
-                2026 AI Trends & Predictions
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-sm">
-                Understand what's coming so you can prepare your career and your team
-              </p>
-            </div>
-
-            {/* Item 4 */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-black">
-              <div className="mb-6">
-                <img src="/community.png" alt="Access to AI Community" className="h-20 w-20" />
-              </div>
-              <h3 className="text-lg font-bold text-black mb-3">
-                Access to AI Community
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-sm">
-                Connect with 5,000+ professionals learning AI together
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
       {/* Why AI Skills Matter In 2026 */}
-      <section className="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="hero-title text-2xl lg:text-4xl font-bold text-black mb-4">
-              Check Out 1,000+ Cases of Job Losses Due to AI
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="cs-container">
+          <div className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
+            <h2 className="cs-display-m text-cs-black mb-3">
+              Check out 1,000+ cases of job losses due to AI
             </h2>
-            <p className="text-lg text-gray-600">According to a Recent Reddit Thread</p>
+            <p className="text-lg text-cs-gray-500">According to a recent Reddit thread</p>
           </div>
 
-          <div className="mb-12 lg:mb-16 bg-white rounded-2xl border-2 border-black overflow-hidden shadow-lg">
+          <div className="mb-12 lg:mb-16 bg-white rounded-cs-lg border border-cs-gray-200 overflow-hidden shadow-cs-sm">
             <AISkillsCarousel />
           </div>
 
-          <div className="max-w-3xl mx-auto bg-white rounded-2xl border-2 border-black p-8 lg:p-12 shadow-lg">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-800 leading-relaxed">
-                <span className="font-bold text-black">The skills needed in 2026 are completely different from a year ago.</span> Just knowing how to use GPT doesn't impress people anymore.
+          <div className="max-w-3xl mx-auto bg-cs-blue-50 rounded-cs-lg p-8 lg:p-12">
+            <div className="space-y-5">
+              <p className="text-lg text-cs-ink leading-relaxed">
+                <span className="font-semibold text-cs-black">The skills needed in 2026 are completely different from a year ago.</span> Just knowing how to use GPT doesn't impress people anymore.
               </p>
 
-              <p className="text-lg text-gray-800 leading-relaxed">
-                <span className="font-bold text-black">Now other things matter:</span> building quick prototypes, managing AI agents, understanding where AI can help and where it can't.
+              <p className="text-lg text-cs-ink leading-relaxed">
+                <span className="font-semibold text-cs-black">Now other things matter:</span> building quick prototypes, managing AI agents, understanding where AI can help and where it can't.
               </p>
 
-              <p className="text-lg text-gray-800 leading-relaxed">
+              <p className="text-lg text-cs-ink leading-relaxed">
                 We'll talk about this at our Virtual AI Conf about AI skills!
               </p>
             </div>
