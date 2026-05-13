@@ -1,3 +1,166 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ========================================================================
+   Community Sprints — design tokens (CSS variables)
+   Mirrors tailwind.config.js so non-utility CSS can use the same scale.
+   ======================================================================== */
+:root {
+  --cs-blue: #3956ff;
+  --cs-blue-hover: #2a44e0;
+  --cs-blue-pressed: #1f33b8;
+  --cs-blue-50: #eaf0ff;
+  --cs-blue-100: #d6e0ff;
+  --cs-blue-200: #b8c7ff;
+  --cs-hero-from: #d8e4ff;
+  --cs-hero-via: #eaf0ff;
+  --cs-hero-to: #f6f9ff;
+  --cs-black: #0a0a0a;
+  --cs-ink: #111315;
+  --cs-gray-700: #4a5159;
+  --cs-gray-500: #7a818a;
+  --cs-gray-300: #cdd1d6;
+  --cs-gray-200: #e3e6ea;
+  --cs-gray-100: #f1f3f6;
+  --cs-gray-50: #f7f8fa;
+  --cs-white: #ffffff;
+  --cs-orange: #ff5a1f;
+
+  --r-pill: 999px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+
+  --shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
+  --shadow-sm: 0 2px 6px rgba(10, 10, 10, 0.05), 0 1px 2px rgba(10, 10, 10, 0.04);
+  --shadow-md: 0 8px 20px rgba(10, 10, 10, 0.07), 0 2px 6px rgba(10, 10, 10, 0.04);
+  --shadow-lg: 0 18px 36px rgba(10, 10, 10, 0.08);
+
+  --ff-display: 'Unbounded', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ff-body: 'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* ========================================================================
+   Base typography — Community Sprints look
+   ======================================================================== */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--ff-body);
+    color: var(--cs-ink);
+    background: var(--cs-white);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ff-display);
+    color: var(--cs-black);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-weight: 800;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--cs-blue);
+    color: #fff;
+  }
+}
+
+/* ========================================================================
+   Reusable component classes — CS primitives
+   ======================================================================== */
+@layer components {
+  /* Pill button — primary cobalt */
+  .cs-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 font-body font-semibold;
+    @apply bg-cs-blue text-white px-6 py-3 rounded-cs-pill;
+    @apply transition-all duration-150 ease-out;
+    @apply hover:bg-cs-blue-hover hover:no-underline;
+    @apply active:translate-y-px;
+    @apply shadow-cs-xs hover:shadow-cs-sm;
+  }
+
+  /* Pill button — secondary outlined */
+  .cs-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 font-body font-semibold;
+    @apply bg-white text-cs-black border border-cs-gray-300 px-6 py-3 rounded-cs-pill;
+    @apply transition-all duration-150 ease-out;
+    @apply hover:border-cs-black;
+    @apply active:translate-y-px;
+  }
+
+  /* Dark CTA button on black sections */
+  .cs-btn-on-dark {
+    @apply inline-flex items-center justify-center gap-2 font-body font-semibold;
+    @apply bg-cs-blue text-white px-6 py-3 rounded-cs-pill;
+    @apply transition-all duration-150 ease-out;
+    @apply hover:bg-cs-blue-hover;
+  }
+
+  /* CS card — white, thin border, soft shadow */
+  .cs-card {
+    @apply bg-white border border-cs-gray-200 rounded-cs-lg shadow-cs-xs;
+    @apply transition-shadow duration-150 ease-out;
+    @apply hover:shadow-cs-md;
+  }
+
+  /* CS card — soft blue tinted (sprint cards) */
+  .cs-card-tint {
+    @apply bg-cs-blue-50 rounded-cs-lg;
+  }
+
+  /* Chip / tag */
+  .cs-chip {
+    @apply inline-flex items-center font-body font-medium text-sm;
+    @apply bg-cs-gray-100 text-cs-ink px-3 py-1 rounded-cs-pill;
+  }
+
+  /* Container */
+  .cs-container {
+    @apply max-w-cs-container mx-auto px-6 lg:px-10;
+  }
+
+  /* Display headings */
+  .cs-display-xl {
+    font-family: var(--ff-display);
+    font-weight: 800;
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .cs-display-l {
+    font-family: var(--ff-display);
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .cs-display-m {
+    font-family: var(--ff-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4.5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Hero gradient wash */
+  .cs-hero-bg {
+    background: linear-gradient(180deg, var(--cs-hero-from) 0%, var(--cs-hero-via) 50%, var(--cs-hero-to) 100%);
+  }
+}
