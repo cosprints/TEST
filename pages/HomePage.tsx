@@ -109,6 +109,155 @@ function HomePage() {
     { photo: '/rohun-shroff.jpg', name: 'Rohun Shroff', role: 'CEO', company: { logo: '/ai_pulse_logo.png', name: 'The AI Pulse' }, bio: 'Leading innovation in AI and technology at The AI Pulse.' },
   ];
 
+  type ScheduleSpeaker =
+    | { photo: string; name: string; role?: string; companyLogo?: string; companyName?: string }
+    | { secret: true; name?: string };
+
+  type ScheduleSession = {
+    time: string;
+    type: 'Main Stage' | 'Panel' | 'Presentation';
+    title: string;
+    speakers: ScheduleSpeaker[];
+    moderator?: string;
+  };
+
+  const schedule: ScheduleSession[] = [
+    {
+      time: '11:00',
+      type: 'Main Stage',
+      title: 'Co-hosts introduction',
+      speakers: [
+        { photo: '/co-hosts_max_pog.jpg', name: 'Max Pog', role: 'Co-Host', companyLogo: '/csprints_inverted copy.png', companyName: 'Community Sprints' },
+        { photo: '/co-hosts_veremeyenko.jpg', name: 'Alex Veremeyenko', role: 'Founder', companyLogo: '/veremeyenko_company_logo.png', companyName: 'God of Prompt' },
+        { photo: '/huryn copy.jpg', name: 'Pawel Huryn', role: 'CEO', companyLogo: '/product-compass.png', companyName: 'The Product Compass' },
+      ],
+    },
+    {
+      time: '11:05',
+      type: 'Panel',
+      title: 'How to Cut Through AI Tool Noise. What are the Must-Have AI Skills for 2026?',
+      speakers: [
+        { photo: '/zborovskiy.jpg', name: 'Dima Zborovskiy', role: 'AI Director', companyLogo: '/deliveroo.png', companyName: 'Deliveroo' },
+        { photo: '/martijn_lancee.jpg', name: 'Martijn Lancee', role: 'GTM AI', companyLogo: '/microsoft-logo.png', companyName: 'Microsoft' },
+        { secret: true, name: 'Secret speaker' },
+      ],
+      moderator: 'Liam Dubson @ encountr',
+    },
+    {
+      time: '11:35',
+      type: 'Presentation',
+      title: 'How to use AI agents for metrics and personal growth? AI use cases from Deliveroo',
+      speakers: [
+        { photo: '/zborovskiy.jpg', name: 'Dima Zborovskiy', role: 'AI Director', companyLogo: '/deliveroo.png', companyName: 'Deliveroo' },
+      ],
+    },
+    {
+      time: '12:25',
+      type: 'Panel',
+      title: 'How we use AI for growth & marketing',
+      speakers: [
+        { photo: '/laura-burkhauser.jpg', name: 'Laura Burkhauser', role: 'CEO', companyLogo: '/descript-logo.png', companyName: 'Descript' },
+        { photo: '/nick_golos.jpg', name: 'Nick Golos', role: 'Growth manager', companyLogo: '/fluently_.png', companyName: 'Fluently' },
+        { photo: '/jay_singh.jpg', name: 'Jay Singh', role: 'CEO', companyLogo: '/logo-casper-studios.png', companyName: 'Casper Studios' },
+      ],
+      moderator: 'Secret moderator',
+    },
+    {
+      time: '12:50',
+      type: 'Presentation',
+      title: 'How to make 16M views on Linkedin in 3 months with AI',
+      speakers: [
+        { photo: '/nick_golos.jpg', name: 'Nick Golos', role: 'Growth manager', companyLogo: '/fluently_.png', companyName: 'Fluently' },
+      ],
+    },
+    {
+      time: '13:05',
+      type: 'Panel',
+      title: "What VCs think: Is AI a Bubble? And Which AI Startups They'll Actually Fund in 2026",
+      speakers: [
+        { photo: '/misti-cain_.jpg', name: 'Misti Cain', role: 'Managing Director', companyLogo: '/techstars-logo-vector.png', companyName: 'Techstars' },
+        { photo: '/max-reiff.jpg', name: 'Max Reiff', role: 'Partner', companyLogo: '/idc-ventures.png', companyName: 'IDC Ventures' },
+        { photo: '/haley-bryant.jpg', name: 'Haley Bryant', role: 'Partner', companyLogo: '/hustle-fund-logo.png', companyName: 'Hustle Fund' },
+      ],
+      moderator: 'Nathan Beckord @ Foundersuite',
+    },
+    {
+      time: '13:30',
+      type: 'Presentation',
+      title: 'The 5 most popular financial agentic AI workflows relevant to all industries',
+      speakers: [
+        { photo: '/joseph.jpg', name: 'Raphael Joseph', role: 'Co-Founder', companyLogo: '/raphael_joseph_company_logo.png', companyName: 'We Are Agentic' },
+      ],
+    },
+    {
+      time: '13:45',
+      type: 'Panel',
+      title: "MCP, AI Agents, AI Skills, Automations & Prompting: What's Dead and What's Next in 2026",
+      speakers: [
+        { photo: '/veremeyenko.jpg', name: 'Alex Veremeyenko', role: 'Founder', companyLogo: '/veremeyenko_company_logo.png', companyName: 'God Of Prompt' },
+        { photo: '/carraro.jpg', name: 'Fabrício Carraro', role: 'AI Developer Advocate', companyLogo: '/fabricio_carraroco_company.png', companyName: 'Barcelona Supercomputing Center' },
+        { photo: '/gupta.jpg', name: 'Pallavi Gupta', role: 'Product Manager', companyLogo: '/microsoft-logo.png', companyName: 'Microsoft AI' },
+        { photo: '/hamel_husain.jpg', name: 'Hamel Husain', role: 'ML Engineer', companyLogo: '/logo-parlance-labs.png', companyName: 'Parlance Labs' },
+      ],
+      moderator: 'Robert Youssef @ God Of Prompt',
+    },
+    {
+      time: '14:10',
+      type: 'Presentation',
+      title: 'AI Superpowers: Can one person build a unicorn?',
+      speakers: [
+        { photo: '/satyajeet-salgar.jpg', name: 'Satyajeet Salgar', role: 'Director of Product', companyLogo: '/google-ai-logo.png', companyName: 'Google AI' },
+      ],
+    },
+    {
+      time: '14:25',
+      type: 'Presentation',
+      title: 'Scaling AI engineering to production repositories',
+      speakers: [
+        { photo: '/filev.jpg', name: 'Andrew Filev', role: 'Founder & CEO' },
+      ],
+    },
+    {
+      time: '14:40',
+      type: 'Presentation',
+      title: 'Secret topic',
+      speakers: [{ secret: true, name: 'Secret Speaker' }],
+    },
+    {
+      time: '14:55',
+      type: 'Presentation',
+      title: 'How to build a ready SaaS without coding?',
+      speakers: [
+        { photo: '/huryn copy.jpg', name: 'Pawel Huryn', role: 'CEO', companyLogo: '/product-compass.png', companyName: 'The Product Compass' },
+      ],
+    },
+    {
+      time: '15:25',
+      type: 'Presentation',
+      title: 'Emotional and relationship intelligence in the era of AI',
+      speakers: [
+        { photo: '/liam_dubson.jpg', name: 'Liam Dubson', role: 'Founder & CEO', companyLogo: '/encountr.png', companyName: 'Encountr' },
+      ],
+    },
+    {
+      time: '15:30',
+      type: 'Presentation',
+      title: 'Agentic Innovation: 10× Output. Same Budget.',
+      speakers: [
+        { photo: '/matthias_walter.jpg', name: 'Matthias Walter', role: 'Co-Founder', companyLogo: '/fastbreak_one_logo.jpeg', companyName: 'Fastbreak.one' },
+      ],
+    },
+    {
+      time: '15:45',
+      type: 'Presentation',
+      title: 'Should I use AI to automate this?',
+      speakers: [
+        { photo: '/rohun-shroff.jpg', name: 'Rohun Shroff', role: 'CEO', companyLogo: '/ai_pulse_logo.png', companyName: 'The AI Pulse' },
+      ],
+    },
+  ];
+
+
   const conferences = [
     {
       id: 1,
@@ -596,489 +745,116 @@ function HomePage() {
       </section>
 
       {/* Conference Schedule Section */}
-      <section id="schedule" className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="hero-title text-3xl lg:text-5xl font-bold text-black mb-6">Conference Schedule</h2>
-            <p className="text-xl text-gray-700">Full agenda of talks and workshops</p>
+      {/* Conference Schedule — data-driven, CS look */}
+      <section id="schedule" className="py-16 lg:py-24 bg-cs-gray-50">
+        <div className="cs-container">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h2 className="cs-display-m text-cs-black mb-3">Conference schedule</h2>
+            <p className="text-lg text-cs-gray-700">Full agenda of talks and workshops</p>
           </div>
 
-          <div className="space-y-4">
-            {/* Schedule Card 1 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">11:00 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Main Stage</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">11:00 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Main Stage</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">Co-hosts introduction</div>
-                </div>
-                <div>
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
-                      <img src="/co-hosts_max_pog.jpg" alt="Max Pog" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Max Pog, Co-Host</span>
-                      <img src="/csprints_inverted_copy.png" alt="Community Sprints" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/co-hosts_veremeyenko.jpg" alt="Alex Veremeyenko" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Alex Veremeyenko, Founder</span>
-                      <img src="/veremeyenko_company_logo.png" alt="God of Prompt" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/huryn_copy.jpg" alt="Pawel Huryn" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Pawel Huryn, CEO</span>
-                      <img src="/product-compass.png" alt="The Product Compass" className="h-5" onError={handleImageError} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 2 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">11:05 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">11:05 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">How to Cut Through AI Tool Noise. What are the Must-Have AI Skills for 2026?</div>
-                </div>
-                <div>
-                  <div className="flex flex-col gap-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <img src="/zborovskiy.jpg" alt="Dima Zborovskiy" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Dima Zborovskiy, AI Director</span>
-                      <img src="/deliveroo.png" alt="Deliveroo" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/martijn_lancee.jpg" alt="Martijn Lancee" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Martijn Lancee, GTM AI</span>
-                      <img src="/microsoft-logo.png" alt="Microsoft" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center flex-shrink-0">
-                        <User className="w-4 h-4 text-gray-200" />
+          <div className="space-y-3">
+            {schedule.map((session, idx) => {
+              const typeStyle =
+                session.type === 'Main Stage'
+                  ? 'bg-cs-black text-white'
+                  : session.type === 'Panel'
+                    ? 'bg-cs-blue-50 text-cs-blue'
+                    : 'bg-cs-gray-100 text-cs-ink';
+              return (
+                <div
+                  key={idx}
+                  className="bg-white border border-cs-gray-200 rounded-cs-lg shadow-cs-xs hover:shadow-cs-md transition-shadow"
+                >
+                  <div className="flex flex-col md:grid md:grid-cols-[110px_150px_1fr_1.1fr] gap-4 md:gap-6 p-5 md:p-6 md:items-start">
+                    {/* Mobile: time + type inline */}
+                    <div className="md:hidden flex items-center gap-3">
+                      <div className="font-mono font-semibold text-cs-blue text-lg tabular-nums">
+                        {session.time}
+                        <span className="text-cs-gray-400 text-sm ml-1">(NYC)</span>
                       </div>
-                      <span className="text-gray-900">Secret speaker</span>
+                      <span className={`inline-flex items-center px-3 py-1 rounded-cs-pill text-xs font-semibold ${typeStyle}`}>
+                        {session.type}
+                      </span>
                     </div>
-                    <span className="text-gray-600 italic ml-10">Moderator: Liam Dubson @ encountr</span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Schedule Card 3 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">11:35 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">11:35 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">How to use AI agents for metrics and personal growth? AI use cases from Deliveroo</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/zborovskiy.jpg" alt="Dima Zborovskiy" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Dima Zborovskiy, AI Director</span>
-                    <img src="/deliveroo.png" alt="Deliveroo" className="h-5" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 4 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">12:25 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">12:25 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">How we use AI for growth & marketing</div>
-                </div>
-                <div>
-                  <div className="flex flex-col gap-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <img src="/laura-burkhauser.jpg" alt="Laura Burkhauser" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Laura Burkhauser, CEO</span>
-                      <img src="/descript-logo.png" alt="Descript" className="h-5" onError={handleImageError} />
+                    {/* Desktop: time */}
+                    <div className="hidden md:block font-mono font-semibold text-cs-blue text-lg tabular-nums">
+                      {session.time}
+                      <div className="text-cs-gray-400 text-xs font-body font-medium mt-0.5">NYC</div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/nick_golos.jpg" alt="Nick Golos" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Nick Golos, Growth manager</span>
-                      <img src="/fluently_.png" alt="Fluently" className="h-5" onError={handleImageError} />
+
+                    {/* Desktop: type chip */}
+                    <div className="hidden md:flex md:items-start">
+                      <span className={`inline-flex items-center px-3 py-1 rounded-cs-pill text-xs font-semibold ${typeStyle}`}>
+                        {session.type}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/jay_singh.jpg" alt="Jay Singh" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Jay Singh, CEO</span>
-                      <img src="/logo-casper-studios.png" alt="Casper Studios" className="h-5" onError={handleImageError} />
+
+                    {/* Title */}
+                    <div>
+                      <h3 className="font-display font-bold text-cs-black text-lg leading-snug tracking-cs-tight">
+                        {session.title}
+                      </h3>
                     </div>
-                    <span className="text-gray-600 italic ml-10">Moderator: Secret moderator</span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Schedule Card 5 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">12:50 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">12:50 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">How to make 16M views on LinkedIn in 3 months with AI</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/nick_golos.jpg" alt="Nick Golos" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Nick Golos, Growth manager</span>
-                    <img src="/fluently_.png" alt="Fluently" className="h-4" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 6 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">13:05 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">13:05 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">What VCs think: Is AI a Bubble? And Which AI Startups They'll Actually Fund in 2026</div>
-                </div>
-                <div>
-                  <div className="flex flex-col gap-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <img src="/misti-cain_.jpg" alt="Misti Cain" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Misti Cain, Managing Director</span>
-                      <img src="/techstars-logo-vector.png" alt="Techstars" className="h-5" onError={handleImageError} />
+                    {/* Speakers */}
+                    <div className="flex flex-col gap-2 text-sm">
+                      {session.speakers.map((sp, sidx) => (
+                        <div key={sidx} className="flex items-center gap-2 flex-wrap">
+                          {'secret' in sp ? (
+                            <>
+                              <div className="w-8 h-8 rounded-full bg-cs-gray-200 flex items-center justify-center flex-shrink-0">
+                                <User className="w-4 h-4 text-cs-gray-500" />
+                              </div>
+                              <span className="text-cs-ink">{sp.name ?? 'Secret speaker'}</span>
+                            </>
+                          ) : (
+                            <>
+                              <img
+                                src={sp.photo}
+                                alt={sp.name}
+                                className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                                onError={handleImageError}
+                              />
+                              <span className="text-cs-ink">
+                                {sp.name}
+                                {sp.role ? <span className="text-cs-gray-500">, {sp.role}</span> : null}
+                              </span>
+                              {sp.companyLogo ? (
+                                <img
+                                  src={sp.companyLogo}
+                                  alt={sp.companyName ?? ''}
+                                  className="h-4 object-contain"
+                                  onError={handleImageError}
+                                />
+                              ) : null}
+                            </>
+                          )}
+                        </div>
+                      ))}
+                      {session.moderator ? (
+                        <span className="text-cs-gray-500 italic text-xs ml-10">
+                          Moderator: {session.moderator}
+                        </span>
+                      ) : null}
                     </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/max-reiff.jpg" alt="Max Reiff" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Max Reiff, Partner</span>
-                      <img src="/idc-ventures.png" alt="IDC Ventures" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/haley-bryant.jpg" alt="Haley Bryant" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Haley Bryant, Partner</span>
-                      <img src="/hustle-fund-logo.png" alt="Hustle Fund" className="h-5" onError={handleImageError} />
-                    </div>
-                    <span className="text-gray-600 italic ml-10">Moderator: Nathan Beckord @ Foundersuite</span>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 7 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">13:30 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">13:30 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">The 5 most popular financial agentic AI workflows relevant to all industries</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/joseph.jpg" alt="Raphael Joseph" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Raphael Joseph, Co-Founder</span>
-                    <img src="/raphael_joseph_company_logo.png" alt="We Are Agentic" className="h-5" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 8 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">13:45 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">13:45 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Panel</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">MCP, AI Agents, AI Skills, Automations & Prompting: What's Dead and What's Next in 2026</div>
-                </div>
-                <div>
-                  <div className="flex flex-col gap-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <img src="/veremeyenko.jpg" alt="Alex Veremeyenko" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Alex Veremeyenko, Founder</span>
-                      <img src="/veremeyenko_company_logo.png" alt="God Of Prompt" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/carraro.jpg" alt="Fabricio Carraro" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Fabrício Carraro, AI Developer Advocate</span>
-                      <img src="/fabricio_carraroco_company.png" alt="Barcelona Supercomputing Center" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/gupta.jpg" alt="Pallavi Gupta" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Pallavi Gupta, Product Manager</span>
-                      <img src="/microsoft-logo.png" alt="Microsoft AI" className="h-5" onError={handleImageError} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img src="/hamel_husain.jpg" alt="Hamel Husain" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                      <span className="text-gray-900">Hamel Husain, ML Engineer</span>
-                      <img src="/logo-parlance-labs.png" alt="Parlance Labs" className="h-5" onError={handleImageError} />
-                    </div>
-                    <span className="text-gray-600 italic ml-10">Moderator: Robert Youssef @ God Of Prompt</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 9 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">14:10 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">14:10 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">AI Superpowers: Can one person build a unicorn?</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/satyajeet-salgar.jpg" alt="Satyajeet Salgar" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Satyajeet Salgar, Director of Product</span>
-                    <img src="/google-ai-logo.png" alt="Google AI" className="h-5" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 10 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">14:25 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">14:25 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">Scaling AI engineering to production repositories</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/filev.jpg" alt="Andrew Filev" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Andrew Filev, Founder & CEO</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 11 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">14:40 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">14:40 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">Secret topic</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center flex-shrink-0">
-                      <User className="w-4 h-4 text-gray-200" />
-                    </div>
-                    <span className="text-gray-900">Secret Speaker</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 12 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">14:55 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">14:55 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">How to build a ready SaaS without coding?</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/huryn copy.jpg" alt="Pawel Huryn" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Pawel Huryn, CEO</span>
-                    <img src="/product-compass.png" alt="The Product Compass" className="h-4" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 13 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">15:25 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">15:25 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">Emotional and relationship intelligence in the era of AI</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/liam_dubson.jpg" alt="Liam Dubson" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Liam Dubson, Founder & CEO</span>
-                    <img src="/encountr.png" alt="Encountr" className="h-5" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 14 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">15:30 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">15:30 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">Agentic Innovation: 10× Output. Same Budget.</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/matthias_walter.jpg" alt="Matthias Walter" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Matthias Walter, Co-Founder</span>
-                    <img src="/fastbreak_one_logo.jpeg" alt="Fastbreak.one" className="h-5" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Schedule Card 15 */}
-            <div className="bg-white border-2 border-black rounded-lg hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:grid md:grid-cols-[120px_140px_1fr_1fr] gap-4 p-4 md:p-6">
-                <div className="md:hidden flex items-center gap-3">
-                  <div className="text-gray-900 font-bold text-lg">15:45 <span className="text-gray-400">(NYC)</span></div>
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div className="hidden md:block">
-                  <div className="text-gray-900 font-bold text-lg">15:45 <span className="text-gray-400">(NYC)</span></div>
-                </div>
-                <div className="hidden md:block">
-                  <span className="inline-block border border-black text-black bg-transparent px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                </div>
-                <div>
-                  <div className="hero-title text-gray-700 text-lg mb-3 md:mb-0">Should I use AI to automate this?</div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <img src="/rohun-shroff.jpg" alt="Rohun Shroff" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={handleImageError} />
-                    <span className="text-gray-900">Rohun Shroff, CEO</span>
-                    <img src="/ai_pulse_logo.png" alt="The AI Pulse" className="h-5" onError={handleImageError} />
-                  </div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
-            <div className="relative inline-block">
-              <a
-                href={calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-12 py-5 rounded-xl font-bold text-xl transition-all shadow-lg hover:shadow-xl hover:scale-105"
-              >
-                Register Now
-              </a>
-              <span className="absolute -top-3 -right-4 bg-gradient-to-r from-green-400 to-emerald-500 text-white px-4 py-1.5 rounded-full font-bold text-sm shadow-lg transform rotate-12 z-10">
-                FREE
-              </span>
-            </div>
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cs-btn-primary text-base px-7 py-3.5"
+            >
+              Register now — free
+              <ChevronRight className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </section>
