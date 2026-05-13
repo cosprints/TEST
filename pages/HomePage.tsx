@@ -859,25 +859,28 @@ function HomePage() {
         </div>
       </section>
 
-      {/* About Us Section */}
+      {/* About Us — CS style */}
       <section id="community" className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="hero-title text-3xl lg:text-5xl font-bold text-black mb-12 text-center">About Us</h2>
+        <div className="cs-container">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h2 className="cs-display-m text-cs-black mb-3">About us</h2>
+            <p className="text-lg text-cs-gray-700">A network of AI practitioners building events for practitioners.</p>
+          </div>
 
           {/* Co-Hosted by Leading AI Communities */}
-          <div className="mb-16">
-            <h3 className="hero-title text-2xl lg:text-3xl font-bold text-black mb-8 text-center">Co-Hosted by Leading AI Communities</h3>
+          <div className="mb-20">
+            <h3 className="font-display font-bold text-cs-black text-2xl lg:text-3xl tracking-cs-display text-center mb-10">Co-hosted by leading AI communities</h3>
 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {/* Community Sprints */}
-              <div className="flex flex-col items-center text-center p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center p-6 rounded-cs-lg bg-white border border-cs-gray-200 shadow-cs-xs hover:shadow-cs-md transition-shadow">
                 <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg">
                   <img
                     src="/co-hosts-company_logo_community_sprints.jpeg"
                     alt="Community Sprints"
                     className="w-full h-full object-contain rounded-lg" onError={handleImageError} />
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                <h4 className="font-display font-bold text-cs-black text-lg tracking-cs-tight mb-2">
                   Community Sprints
                 </h4>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
@@ -902,14 +905,14 @@ function HomePage() {
               </div>
 
               {/* The Product Compass */}
-              <div className="flex flex-col items-center text-center p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center p-6 rounded-cs-lg bg-white border border-cs-gray-200 shadow-cs-xs hover:shadow-cs-md transition-shadow">
                 <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg">
                   <img
                     src="/co-hosts-company_logo_compass.jpeg"
                     alt="The Product Compass"
                     className="w-full h-full object-cover rounded-lg" onError={handleImageError} />
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                <h4 className="font-display font-bold text-cs-black text-lg tracking-cs-tight mb-2">
                   The Product Compass
                 </h4>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
@@ -925,14 +928,14 @@ function HomePage() {
               </div>
 
               {/* God of Prompt */}
-              <div className="flex flex-col items-center text-center p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center p-6 rounded-cs-lg bg-white border border-cs-gray-200 shadow-cs-xs hover:shadow-cs-md transition-shadow">
                 <div className="w-20 h-20 mb-4 flex items-center justify-center overflow-hidden rounded-lg">
                   <img
                     src="/co-hosts-company_logo_god-of-prompt.jpeg"
                     alt="God of Prompt"
                     className="w-full h-full object-cover rounded-lg" onError={handleImageError} />
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                <h4 className="font-display font-bold text-cs-black text-lg tracking-cs-tight mb-2">
                   God of Prompt
                 </h4>
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
@@ -960,7 +963,7 @@ function HomePage() {
 
           {/* Our Previous 100% Virtual Conferences Carousel */}
           <div className="mb-16">
-            <h3 className="hero-title text-2xl lg:text-3xl font-bold text-black mb-12 text-center">
+            <h3 className="font-display font-bold text-cs-black text-2xl lg:text-3xl tracking-cs-display text-center mb-10">
               Our previous 100% virtual conferences
             </h3>
 
@@ -979,7 +982,7 @@ function HomePage() {
 
               {/* Right - Content */}
               <div className="order-2 lg:order-1 px-4 sm:px-6 lg:px-8">
-                <h4 className="hero-title text-lg lg:text-2xl font-bold text-black mb-8">
+                <h4 className="font-display font-bold text-cs-black text-xl lg:text-2xl tracking-cs-tight mb-6">
                   {conferences[conferenceSlide].title}
                 </h4>
 
@@ -990,11 +993,11 @@ function HomePage() {
                     return (
                       <>
                         {needsBreak && <div key={`break-${idx}`} className="sm:col-span-3" />}
-                        <div key={idx} className={isHighlighted ? 'py-2 px-3 bg-blue-50 rounded-lg' : ''}>
-                          <span className={`font-bold ${isHighlighted ? 'text-blue-700' : 'text-gray-900'}`}>
+                        <div key={idx} className={isHighlighted ? 'py-2 px-3 bg-cs-blue-50 rounded-cs-md' : ''}>
+                          <span className={`font-display font-bold tracking-cs-tight ${isHighlighted ? 'text-cs-blue' : 'text-cs-black'}`}>
                             {stat.value}
                           </span>
-                          <span className={`ml-2 text-sm ${isHighlighted ? 'text-blue-600' : 'text-gray-600'}`}>
+                          <span className={`ml-2 text-sm ${isHighlighted ? 'text-cs-blue' : 'text-cs-gray-500'}`}>
                             {stat.label}
                           </span>
                         </div>
@@ -1009,10 +1012,10 @@ function HomePage() {
             <div className="flex items-center justify-center gap-6 py-8 lg:py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
               <button
                 onClick={() => setConferenceSlide((prev) => (prev - 1 + conferences.length) % conferences.length)}
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="p-3 rounded-cs-pill bg-white border border-cs-gray-200 hover:border-cs-black transition-colors"
                 aria-label="Previous conference"
               >
-                <ChevronLeft className="h-6 w-6 text-gray-700" />
+                <ChevronLeft className="h-5 w-5 text-cs-ink" />
               </button>
 
               <div className="flex gap-3">
@@ -1021,7 +1024,7 @@ function HomePage() {
                     key={idx}
                     onClick={() => setConferenceSlide(idx)}
                     className={`h-3 rounded-full transition-all ${
-                      idx === conferenceSlide ? 'bg-gray-900 w-8' : 'bg-gray-300 w-3'
+                      idx === conferenceSlide ? 'bg-cs-blue w-8' : 'bg-cs-gray-300 w-3'
                     }`}
                     aria-label={`Go to conference ${idx + 1}`}
                   />
@@ -1030,48 +1033,42 @@ function HomePage() {
 
               <button
                 onClick={() => setConferenceSlide((prev) => (prev + 1) % conferences.length)}
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="p-3 rounded-cs-pill bg-white border border-cs-gray-200 hover:border-cs-black transition-colors"
                 aria-label="Next conference"
               >
-                <ChevronRight className="h-6 w-6 text-gray-700" />
+                <ChevronRight className="h-5 w-5 text-cs-ink" />
               </button>
             </div>
           </div>
 
           <div className="max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 rounded-3xl p-8 lg:p-12 shadow-xl">
+            <div className="bg-cs-blue-50 rounded-cs-xl p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
-                {/* Profile Photo */}
                 <div className="flex-shrink-0">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full blur-xl opacity-30"></div>
-                    <img
-                      src="/co-hosts_max_pog.jpg"
-                      alt="Max Pog"
-                      className="relative w-40 h-40 lg:w-48 lg:h-48 rounded-full object-cover object-left shadow-2xl border-4 border-white" onError={handleImageError} />
-                  </div>
+                  <img
+                    src="/co-hosts_max_pog.jpg"
+                    alt="Max Pog"
+                    className="w-32 h-32 lg:w-40 lg:h-40 rounded-cs-pill object-cover object-left border-4 border-white shadow-cs-md"
+                    onError={handleImageError}
+                  />
                 </div>
 
-                {/* Content */}
-                <div className="flex-1 space-y-6">
-                  {/* Name and Logo */}
-                  <div className="flex items-center gap-4">
-                    <h3 className="hero-title text-2xl lg:text-3xl font-bold text-gray-900">Max Pog</h3>
-                    <img src="/csprints_inverted.png" alt="Community Sprints Logo" className="h-10 lg:h-12 rounded-lg" onError={handleImageError} />
+                <div className="flex-1 space-y-5">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <h3 className="font-display font-bold text-cs-black text-2xl lg:text-3xl tracking-cs-display">Max Pog</h3>
+                    <img src="/csprints_inverted.png" alt="Community Sprints" className="h-8 lg:h-10" onError={handleImageError} />
                   </div>
 
-                  {/* Quote Bubble */}
-                  <div className="relative bg-white rounded-2xl p-6 lg:p-8 shadow-lg">
-                    {/* Decorative quote marks */}
-                    <div className="absolute -top-4 left-6 bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl font-bold shadow-lg">
-                      "
-                    </div>
-                    <p className="text-lg lg:text-xl text-gray-700 leading-relaxed pt-4">
+                  <div className="relative bg-white rounded-cs-lg p-6 lg:p-8 shadow-cs-xs">
+                    <img
+                      src="/assets/cs/quote-marks.svg"
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute -top-3 left-6 h-7 w-auto"
+                    />
+                    <p className="text-base lg:text-lg text-cs-ink leading-relaxed">
                       We're glad to invite you to our online conference, <b>AI Skills '26</b> — a place where inspiring people meet practical AI experience. This event is powered by <b>Community Sprints</b>, a company focused on building a network of passionate people committed to growth and continuous learning. We've launched more than 50 events, delivered hands-on AI workshops, and successfully hosted two conferences — with even more ahead.
                     </p>
-                    <div className="absolute -bottom-4 right-6 bg-gradient-to-br from-cyan-500 to-teal-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl font-bold shadow-lg">
-                      "
-                    </div>
                   </div>
                 </div>
               </div>
@@ -1085,10 +1082,10 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Trusted By Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="hero-title text-3xl lg:text-4xl font-bold text-center text-black mb-12">
+      {/* Trusted By Section — CS */}
+      <section className="py-20 bg-cs-gray-50">
+        <div className="cs-container">
+          <h2 className="cs-display-m text-cs-black text-center mb-12">
             Trusted by 10,000+ learners worldwide
           </h2>
 
@@ -1169,51 +1166,42 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Why AI Skills Matter Section */}
+      {/* Why AI Skills Matter — CS */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="cs-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text Content */}
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div>
-                <h2 className="hero-title text-2xl lg:text-4xl font-bold text-black mb-4">
-                  Why AI Skills Matter in 2026
+                <h2 className="cs-display-m text-cs-black mb-3">
+                  Why AI skills matter in 2026
                 </h2>
-                <p className="text-xl text-gray-600 font-medium">
-                  Insights from Research by the World Economic Forum
+                <p className="text-lg text-cs-gray-500">
+                  Insights from research by the World Economic Forum
                 </p>
               </div>
 
-              {/* Statistics */}
               <div className="space-y-6">
-                <div className="flex gap-4">
-                  <img src="/check.jpg" alt="bullet" className="w-8 h-8 flex-shrink-0 rounded-md" onError={handleImageError} />
-                  <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                    77% of businesses plan to reskill and upskill their workforce to work alongside AI
-                  </p>
-                </div>
-
-                <div className="flex gap-4">
-                  <img src="/check.jpg" alt="bullet" className="w-8 h-8 flex-shrink-0 rounded-md" onError={handleImageError} />
-                  <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                    69% of businesses will hire new people with skills to design AI tools
-                  </p>
-                </div>
-
-                <div className="flex gap-4">
-                  <img src="/check.jpg" alt="bullet" className="w-8 h-8 flex-shrink-0 rounded-md" onError={handleImageError} />
-                  <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                    39% of current skills will be disrupted by 2030
-                  </p>
-                </div>
+                {[
+                  { stat: '77%', text: 'of businesses plan to reskill and upskill their workforce to work alongside AI' },
+                  { stat: '69%', text: 'of businesses will hire new people with skills to design AI tools' },
+                  { stat: '39%', text: 'of current skills will be disrupted by 2030' },
+                ].map((row) => (
+                  <div key={row.stat} className="flex items-baseline gap-5">
+                    <span className="font-display font-black text-cs-blue text-4xl lg:text-5xl tracking-cs-display tabular-nums shrink-0">
+                      {row.stat}
+                    </span>
+                    <p className="text-base lg:text-lg text-cs-ink leading-relaxed">
+                      {row.text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right - WEF Logo */}
             <div className="flex items-center justify-center">
               <img
                 src="/image_(45).png"
-                alt="World Economic Forum Logo"
+                alt="World Economic Forum"
                 className="w-full max-w-64 h-auto object-contain"
                 onError={handleImageError}
               />
@@ -1222,130 +1210,96 @@ function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section - Conference Ticket Style */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative">
-            {/* Modern Ticket Container */}
-            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-black">
-              <div className="flex flex-col lg:flex-row">
-                {/* Main Content Area */}
-                <div className="flex-1 p-8 lg:p-12 relative">
-                  {/* Semicircular notches on left side */}
-                  <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-12 h-12 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 rounded-full shadow-inner border-2 border-black"></div>
+      {/* CTA Section — CS dark band */}
+      <section className="py-20 lg:py-28 bg-cs-black text-white relative overflow-hidden">
+        <img
+          src="/assets/cs/scribble-hearts-blue.png"
+          alt=""
+          aria-hidden="true"
+          className="hidden lg:block absolute top-12 right-12 w-20 opacity-90 rotate-6 pointer-events-none"
+        />
+        <div className="cs-container relative z-10">
+          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-20 items-center">
+            <div className="space-y-8">
+              <div>
+                <h2 className="cs-display-l text-white mb-4">Secure your spot now</h2>
+                <p className="text-lg text-cs-gray-300">
+                  Join 5,000+ professionals for 5 hours of actionable AI frameworks from 30+ industry practitioners.
+                </p>
+              </div>
 
-                  <div className="space-y-8">
-                    {/* Title */}
-                    <div>
-                      <h2 className="hero-title text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                        Secure your spot now
-                      </h2>
-                      <p className="text-gray-600 text-lg">Join 5,000+ professionals for 5 hours of actionable AI frameworks from 30+ industry practitioners</p>
-                    </div>
+              <ul className="space-y-3">
+                {[
+                  { icon: Gift, text: 'Enjoy exclusive benefits from our partners' },
+                  { icon: GraduationCap, text: 'Gain AI skills directly relevant to your daily tasks' },
+                  { icon: Network, text: 'Expand your professional network significantly' },
+                  { icon: Award, text: 'Get a certificate to add on Linkedin' },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <item.icon className="h-5 w-5 text-cs-blue-200 mt-1 flex-shrink-0" />
+                    <span className="text-base lg:text-lg text-white/90">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
 
-                    {/* Benefits List */}
-                    <div className="space-y-4">
-                      <div className="flex items-start space-x-3">
-                        <Gift className="h-6 w-6 text-purple-600 flex-shrink-0 mt-1" />
-                        <p className="text-lg text-gray-700">Enjoy exclusive benefits from our partners</p>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <GraduationCap className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
-                        <p className="text-lg text-gray-700">Gain AI skills directly relevant to your daily tasks</p>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <Network className="h-6 w-6 text-cyan-600 flex-shrink-0 mt-1" />
-                        <p className="text-lg text-gray-700">Expand your professional network significantly</p>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <Award className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                        <p className="text-lg text-gray-700">Get a certificate to add on LinkedIn</p>
-                      </div>
-                    </div>
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cs-btn-primary text-base px-7 py-3.5"
+                >
+                  Register now
+                  <ChevronRight className="h-5 w-5" />
+                </a>
+                <span className="inline-flex items-center px-4 py-2 rounded-cs-pill bg-white/10 text-white text-sm font-semibold">
+                  Free
+                </span>
+              </div>
+            </div>
 
-                    {/* CTA Button */}
-                    <div>
-                      <div className="relative inline-block">
-                        <a
-                          href={calendlyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-12 py-5 rounded-xl font-bold text-xl transition-all shadow-lg hover:shadow-xl hover:scale-105"
-                        >
-                          Register Now
-                        </a>
-                        <span className="absolute -top-3 -right-4 bg-gradient-to-r from-green-400 to-emerald-500 text-white px-4 py-1.5 rounded-full font-bold text-sm shadow-lg transform rotate-12 z-10">
-                          FREE
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Perforation Line with Dots */}
-                <div className="hidden lg:flex flex-col items-center justify-center px-2">
-                  <div className="flex flex-col gap-3">
-                    {[...Array(20)].map((_, i) => (
-                      <div key={i} className="w-2 h-2 bg-black rounded-full"></div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Stub Section */}
-                <div className="lg:w-56 bg-gradient-to-br from-blue-50 to-cyan-50 p-8 flex flex-col justify-center items-center space-y-6 relative">
-                  {/* Semicircular notches on right side */}
-                  <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-12 h-12 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 rounded-full shadow-inner border-2 border-black"></div>
-
-                  <div className="text-center space-y-2">
-                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Event</div>
-                    <div className="text-base font-bold text-gray-900">AI Skills '26</div>
-                    <div className="text-base font-bold text-gray-900">Virtual Conf</div>
-                  </div>
-
-                  <div className="w-16 h-px bg-gray-300"></div>
-
-                  <div className="text-center space-y-2">
-                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Date</div>
-                    <div className="text-sm font-bold text-gray-900">22 January 2026,</div>
-                    <div className="text-sm font-bold text-gray-900">8 AM SF | 11 AM NYC | 4 PM GMT</div>
-                  </div>
-
-                  <div className="w-16 h-px bg-gray-300"></div>
-
-                  <div className="text-center space-y-2">
-                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Price</div>
-                    <div className="text-2xl font-bold text-green-600">FREE</div>
-                  </div>
-
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                    <div className="text-xs font-mono text-gray-400 tracking-widest">ADMIT ONE</div>
-                  </div>
-                </div>
+            {/* Stub card */}
+            <div className="bg-white/5 border border-white/10 rounded-cs-lg p-8 space-y-6">
+              <div className="space-y-1">
+                <div className="text-xs font-medium text-cs-gray-400 uppercase tracking-wider">Event</div>
+                <div className="font-display font-bold text-white text-xl tracking-cs-tight">AI Skills '26</div>
+                <div className="text-cs-gray-300 text-sm">Virtual Conf</div>
+              </div>
+              <div className="h-px bg-white/10" />
+              <div className="space-y-1">
+                <div className="text-xs font-medium text-cs-gray-400 uppercase tracking-wider">Date</div>
+                <div className="font-display font-bold text-white text-lg tracking-cs-tight">22 January 2026</div>
+                <div className="text-cs-gray-300 text-sm">8 AM SF · 11 AM NYC · 4 PM GMT</div>
+              </div>
+              <div className="h-px bg-white/10" />
+              <div className="space-y-1">
+                <div className="text-xs font-medium text-cs-gray-400 uppercase tracking-wider">Price</div>
+                <div className="font-display font-black text-cs-blue-200 text-3xl tracking-cs-display">FREE</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section — CS */}
       <section id="faq" className="py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="hero-title text-3xl lg:text-5xl font-bold text-black mb-12 text-center">
-            Frequently Asked Questions
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
+          <h2 className="cs-display-m text-cs-black mb-12 text-center">
+            Frequently asked questions
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white border border-cs-gray-200 rounded-cs-lg overflow-hidden shadow-cs-xs hover:shadow-cs-sm transition-shadow"
               >
                 <button
                   onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-cs-gray-50 transition-colors"
                 >
-                  <span className="font-bold text-lg text-gray-900 pr-4">{faq.question}</span>
+                  <span className="font-display font-bold text-lg text-cs-black pr-4 tracking-cs-tight">{faq.question}</span>
                   <ChevronDown
-                    className={`w-6 h-6 text-gray-600 flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-cs-gray-500 flex-shrink-0 transition-transform duration-200 ${
                       openFaqIndex === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -1356,7 +1310,7 @@ function HomePage() {
                   }`}
                 >
                   <div className="px-6 pb-5 pt-2">
-                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                    <p className="text-cs-gray-700 leading-relaxed">{faq.answer}</p>
                   </div>
                 </div>
               </div>
